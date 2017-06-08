@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" href="logo.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>AMAAN World News</title>
+		
+		<style>
+			
+			body {
+				margin:0;
+				padding:0;
+				overflow-x:hidden
+			}
+			#nav-link-color {
+				color:white
+			}
+			
+			* {margin:0;padding:0;border:0 none;position: relative; outline: none;}
+            .design > a {
+              text-decoration: none;
+              color: rgba(0,0,0,.4);
+              z-index: 1;
+            }
+
+            .design > a:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background: #9CF5A6;
+              visibility: hidden;
+              border-radius: 5px;
+              transform: scaleX(0);
+              transition: .25s linear;
+            }
+            .design > a:hover:before,
+            .design > a:focus:before {
+              visibility: visible;
+              transform: scaleX(0.6);
+            }
+            .design a:before {
+                background: rgba(0,0,0,0);
+                box-shadow: 0 0 10px 2px #ffdb00;  
+            }
+			.carousel {
+				margin-bottom: 4rem
+			}
+			.carousel-caption {
+			  z-index: 10;
+			  bottom: 3rem
+			}
+			.carousel-item {
+			  height: 700px;
+			  background-color: #777
+			}
+			.carousel-item > img {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  min-width: 100%;
+			  height: 700px
+			}
+
+			.floor-fade {
+				width:100%;
+				background-size: cover;				
+				position: relative
+			}
+			.img1 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("health1.png")
+			}
+			.img2 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("health2.png")
+			}
+			.img3 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("health3.png")
+			}	
+			.follow {
+				float:left;
+				padding:5px 10px;
+				margin:5px;
+				background-color:white
+			}
+			.shake:hover {
+			  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			  transform: translate3d(0, 0, 0);
+			  backface-visibility: hidden;
+			  perspective: 1000px;
+			}
+			@keyframes shake {
+			  10%, 90% {
+				transform: translate3d(-1px, 0, 0);
+			  }
+			  20%, 80% {
+				transform: translate3d(2px, 0, 0);
+			  }
+			  30%, 50%, 70% {
+				transform: translate3d(-4px, 0, 0);
+			  }
+			  40%, 60% {
+				transform: translate3d(4px, 0, 0);
+			  }
+			}
+			.sidenav {
+				height: 100%; 
+				width: 0; 
+				position: fixed; 
+				z-index: 1; 
+				top: 0;
+				left: 0;
+				background-color: #111; 
+				overflow-x: hidden; 
+				padding-top: 60px; 
+				transition: 0.5s; 
+			}
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: #818181;
+				display: block;
+				transition: 0.3s
+			}
+			.sidenav a:hover, .offcanvas a:focus{
+				color: #f1f1f1;
+			}
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 25px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+			#main {
+				transition: margin-left .5s	
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 15px;}
+				.sidenav a {font-size: 18px;}
+			}
+            
+            .main-title{
+              color: #2d2d2d;
+              text-align: center;
+              text-transform: capitalize;
+              padding: 0.7em 0;
+            }
+
+            @media screen and (max-width: 640px){
+              .container{
+                display: block;
+                width: 100%;
+              }
+            }
+
+            @media screen and (min-width: 900px){
+              .container{
+                width: 33.33333%;
+              }
+            }
+
+            .container .title{
+              color: #1a1a1a;
+              text-align: center;
+              margin-bottom: 10px;
+            }
+
+            .content {
+              position: relative;
+              width: 90%;
+              margin: 30px auto;
+              overflow: hidden;
+            }
+
+            .content .content-overlay {
+              background: rgba(0,0,0,0.7);
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              left: 0;
+              top: 0;
+              bottom: 0;
+              right: 0;
+              opacity: 0;
+              -webkit-transition: all 0.4s ease-in-out 0s;
+              -moz-transition: all 0.4s ease-in-out 0s;
+              transition: all 0.4s ease-in-out 0s;
+            }
+
+            .content:hover .content-overlay{
+              opacity: 1;
+            }
+
+            .content-image{
+                width: 100%;
+                height: 300px
+            }
+
+            .content-details {
+              position: absolute;
+              text-align: center;
+              padding-left: 1em;
+              padding-right: 1em;
+              width: 100%;
+              top: 50%;
+              left: 50%;
+              opacity: 0;
+              -webkit-transform: translate(-50%, -50%);
+              -moz-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+              -webkit-transition: all 0.3s ease-in-out 0s;
+              -moz-transition: all 0.3s ease-in-out 0s;
+              transition: all 0.3s ease-in-out 0s;
+            }
+
+            .content:hover .content-details{
+              top: 50%;
+              left: 50%;
+              opacity: 1;
+            }
+
+            .content-details h3{
+              color: #fff;
+              font-weight: 500;
+              letter-spacing: 0.15em;
+              margin-bottom: 0.5em;
+              text-transform: uppercase;
+            }
+
+            .content-details p{
+              color: #fff;
+              font-size: 0.8em;
+            }
+
+            .fadeIn-bottom{
+              top: 80%;
+            }
+
+            .fadeIn-top{
+              top: 20%;
+            }
+
+            .fadeIn-left{
+              left: 20%;
+            }
+
+            .fadeIn-right{
+              left: 80%;
+            }
+            
+            .contain {
+                padding: 40px 0;
+                margin: 40px 5px;
+                border: 2px groove black 
+            }
+            
+            h2 {
+                width: 100%; 
+                text-align: center; 
+                margin: 10px 0 20px; 
+            }
+
+            /* RESPONSIVE CSS
+            -------------------------------------------------- */
+
+            @media (min-width: 40em) {
+              /* Bump up size of carousel content */
+              .carousel-caption p {
+                margin-bottom: 1.25rem;
+                font-size: 1.25rem;
+                line-height: 1.4;
+              }    
+            }
+
+		</style>
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="world.html">World</a>
+		  <a href="education.html">Education</a>
+		  <a href="travel.html">Travel</a>
+		  <a href="#">Health</a>
+		  <a href="#" data-toggle="modal" data-target="#login">Login</a>
+		  <a href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+		  <p class="text-muted" style="font-size:20px;margin:60px auto 5px 35px">MORE</p>
+		  <a href="author.html">Author</a>
+		  <a href="contact.html">Contact</a>
+		  <a href="follow.html">Follow</a>
+          <a href="credits.html">Credits</a>
+		</div>
+		
+		<div id="main">
+			<nav class="navbar navbar-toggleable-lg navbar-light" style="background-color:#4A235A" id="top">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<span class="navbar-brand" onclick="openNav()" style="cursor:pointer">
+					<i class="fa fa-list-ul" aria-hidden="true" style="color:white"></i>
+				</span>
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mt-2 mt-md-0 nav nav-bordered">
+						<li class="nav-item active lead design">
+							<a class="nav-link" id="nav-link-color" href="index.html">Home</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="sport.html">Sport</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="weather.html">Weather</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="tech.html">Technology</a>
+						</li>
+					</ul>
+					
+					<ul class="ml-auto navbar-nav">
+					   <li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#login">Login</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+						</li>
+					</ul>
+					
+					<div style="margin-left:20px">
+						<div class=" input-group">
+							<form class="form-inline my-2 my-lg-0" id="navBarSearchForm" style="padding:7px 15px 0 0">
+								<input class="form-control" style="border-radius:0" type="text" placeholder="Search anything">
+								<div class="input-group-btn">
+									<button class="btn my-2 my-sm-0" style="border-radius:0;background-color:white;padding:7px;cursor:pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+									
+				</div>
+			</nav>	
+			
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<div class="floor-fade img1">					
+							<div class="carousel-caption">
+								  <h1>Dog flu in Florida: Health officials confirm 7 cases of potentially deadly virus</h1>
+								  <p>Seven canines in Florida have been diagnosed with potentially deadly dog flu, a highly contagious virus that popped up in 10 states and infected nearly 1,000 dogs in Chicago in 2015.</p>
+								  <p><a class="btn btn-lg btn-primary" href="health1.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+					</div>
+				
+					<div class="carousel-item">
+						<div class="floor-fade img2">					
+							<div class="carousel-caption">
+								  <h1>Custodial worker uses musical talents to help hospital patients</h1>
+								  <p>A custodial worker is providing more than just clean rooms to patients in Arizona, as he’s tapped into his musical talents to help bring them peace during their stay.</p>
+								  <p><a class="btn btn-lg btn-primary" href="health2.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="carousel-item">
+						<div class="floor-fade img3">					
+							<div class="carousel-caption">
+								  <h1>Ohio attorney general sues 5 drug companies related to opioid crisis</h1>
+								  <p> The Ohio attorney general sued five drugmakers on Wednesday, accusing the companies of perpetrating the state's addictions epidemic by intentionally misleading patients about the dangers of painkillers and promoting benefits of the drugs not backed by science.</p>
+								  <p><a class="btn btn-lg btn-primary" href="health3.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+                    </div>                    
+				</div>
+			 
+				<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				
+				<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+
+            <div class="row contain">
+                <h2>Health Tips</h2>
+                <div class="container">
+                  <div class="content">
+                    <a href="health4.html" target="_blank">
+                      <div class="content-overlay"></div>
+                      <img class="content-image" src="health6.png">
+                      <div class="content-details fadeIn-bottom fadeIn-left">
+                        <h3>Busy brain not letting you sleep? 8 experts offer tips</h3>
+                        <p>Setting an alarm might be the only thing that helps you get up in the morning, but try setting one at night to remind you when it's time to go to bed.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="container">
+                  <div class="content">
+                    <a href="health5.html" target="_blank">
+                      <div class="content-overlay"></div>
+                      <img class="content-image" src="health7.png">
+                      <div class="content-details fadeIn-bottom fadeIn-right">
+                        <h3>Is chocolate good or bad for health?</h3>
+                        <p>Who doesn't love chocolate? Even if it's not your favorite sweet treat, you can probably agree that the confection conjures thoughts of love, pleasure and reward.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="container">
+                  <div class="content">
+                    <a href="health6.html" target="_blank">
+                      <div class="content-overlay"></div>
+                      <img class="content-image" src="health4.png">
+                      <div class="content-details fadeIn-top fadeIn-left">
+                        <h3>The environmental damage caused by tobacco</h3>
+                        <p>Smoking kills 7 million people a year, and it scars the planet through deforestation, pollution and littering.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="container">
+                  <div class="content">
+                    <a href="health7.html" target="_blank">
+                      <div class="content-overlay"></div>
+                      <img class="content-image" src="health5.png">
+                      <div class="content-details fadeIn-top fadeIn-right">
+                        <h3>What would you try for a healthier you?</h3>
+                        <p>Goat yoga participants try to stay in a yoga pose as a young goat walks over them at the Welcome Home Ranch in Arizona</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="container">
+                  <div class="content">
+                    <a href="health8.html" target="_blank">
+                      <div class="content-overlay"></div>
+                      <img class="content-image" src="health8.png">
+                      <div class="content-details fadeIn-top fadeIn-left">
+                        <h3>What makes a good speller (or a bad one)?</h3>
+                        <p>The science of spelling</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="container">
+                  <div class="content">
+                    <a href="health9.html" target="_blank">
+                      <div class="content-overlay"></div>
+                      <img class="content-image" src="health9.png">
+                      <div class="content-details fadeIn-top fadeIn-left">
+                        <h3>12 tips to help you lose weight on the 12-week plan</h3>
+                        <p>These steps will surely help you decrease your weight.</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+			</div>
+            
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Login</div>
+
+                        <div class="container">
+                            <input type="text" class="form-control" placeholder="Email" style="margin:20px auto">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto">
+
+                            <div>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember Me</span>
+                                </label>
+                            </div>
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Don't have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#signup" onclick="$('#login').modal('hide')">Sign Up</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                    <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+                        <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Sign Up</div>
+
+                        <div class="container">
+                            <div class="input-group" style="margin:20px auto">
+                              <input type="text" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" title="Enter your First Name">
+                              <input type="text" class="form-control" placeholder="Last Name"data-toggle="tooltip" data-placement="bottom" title="Enter your Last Name">
+                            </div>
+
+                            <input type="email" class="form-control" placeholder="Email" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter your email">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter password">
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Sign Up</button>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Already have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#login" onclick="$('#signup').modal('hide')">Login</a></span>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            
+			<div class="container-fluid" style="background-color:yellow;padding:50px">
+				
+				<p class="lead" style="font-size:40px;text-align:center">Subscribe to our newsletter for free</p>
+				<div class="offset-md-3 col-md-6">
+					<form>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<div style="text-align:center">
+						<button class="btn btn-primary" style="margin-top:15px">Subscribe Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div style="position:fixed;right:15px;bottom:8px;background-color:#333333;padding:3px 5px;z-index:1">
+				<a href="#top" style="color:white"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+			</div>
+			
+			<div class="container-fluid" style="background-color:#333333">
+				<div class="row">
+					<div class="col-md-6">
+						<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News, All Rights Reserved</p>
+					</div>
+					
+					<div class="col-md-3 offset-md-3">
+						<ul style="list-style:none;color:white">
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 13px;margin:5px;background-color:white" href="https://www.facebook.com/amaan.iqbal.90813" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://twitter.com/amaan_iqbal9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 7px;margin:5px;background-color:white" href="https://plus.google.com/u/0/116420960491695673827?prsrc=3" rel="publisher" target="_blank" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://mail.google.com/mail/u/0/#inbox?compose=15c6942575c494ec" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	</body>
+
+</html>
