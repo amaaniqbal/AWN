@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" href="logo.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>AMAAN World News</title>
+		
+		<style>
+			
+			body {
+				margin:0;
+				padding:0;
+                padding-right: 0    !important;
+				overflow-x:hidden
+			}
+			#nav-link-color {
+				color:white
+			}
+			* {margin:0;padding:0;border:0 none;position: relative; outline: none;}
+            .design > a {
+              text-decoration: none;
+              color: rgba(0,0,0,.4);
+              z-index: 1;
+            }
+            .design > a:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background: #9CF5A6;
+              visibility: hidden;
+              border-radius: 5px;
+              transform: scaleX(0);
+              transition: .25s linear;
+            }
+            .design > a:hover:before,
+            .design > a:focus:before {
+              visibility: visible;
+              transform: scaleX(0.6);
+            }
+            .design a:before {
+                background: rgba(0,0,0,0);
+                box-shadow: 0 0 10px 2px #ffdb00;  
+            }
+			.follow {
+				float:left;
+				padding:5px 10px;
+				margin:5px;
+				background-color:white
+			}
+			.shake:hover {
+			  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			  transform: translate3d(0, 0, 0);
+			  backface-visibility: hidden;
+			  perspective: 1000px;
+			}
+			@keyframes shake {
+			  10%, 90% {
+				transform: translate3d(-1px, 0, 0);
+			  }
+			  20%, 80% {
+				transform: translate3d(2px, 0, 0);
+			  }
+			  30%, 50%, 70% {
+				transform: translate3d(-4px, 0, 0);
+			  }
+			  40%, 60% {
+				transform: translate3d(4px, 0, 0);
+			  }
+			}
+			.sidenav {
+				height: 100%; 
+				width: 0; 
+				position: fixed; 
+				z-index: 1; 
+				top: 0;
+				left: 0;
+				background-color: #111; 
+				overflow-x: hidden; 
+				padding-top: 60px; 
+				transition: 0.5s; 
+			}
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: #818181;
+				display: block;
+				transition: 0.3s
+			}
+			.sidenav a:hover, .offcanvas a:focus{
+				color: #f1f1f1;
+			}
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 25px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+			#main {
+				transition: margin-left .5s	
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 15px;}
+				.sidenav a {font-size: 18px;}
+			}
+            img {
+                width: 100%;
+                height: 400px;
+                margin: 20px auto
+            }
+            .col-md-8 {
+                padding: 30px
+            }
+            h1 {
+                margin-bottom: 25px
+            }
+            .line {
+                padding-left: 10px;
+                border-left: 1px solid gray;
+                margin-left: 10px
+            }
+            .links a {
+                font-size: 120%;
+                padding: 10px
+                
+            }
+            .links a:hover {
+                background-color: #4A235A;
+                color: white !important
+                
+            }
+		</style>
+       
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="world.html">World</a>
+		  <a href="education.html">Education</a>
+		  <a href="travel.html">Travel</a>
+		  <a href="health.html">Health</a>
+		  <a href="#" data-toggle="modal" data-target="#login">Login</a>
+		  <a href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+		  <p class="text-muted" style="font-size:20px;margin:60px auto 5px 35px">MORE</p>
+		  <a href="author.html">Author</a>
+		  <a href="contact.html">Contact</a>
+		  <a href="follow.html">Follow</a>
+          <a href="credits.html">Credits</a>
+		</div>
+		
+		<div id="main">
+			<nav class="navbar navbar-toggleable-lg navbar-light" style="background-color:#4A235A" id="top">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<span class="navbar-brand" onclick="openNav()" style="cursor:pointer">
+					<i class="fa fa-list-ul" aria-hidden="true" style="color:white"></i>
+				</span>
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mt-2 mt-md-0 nav nav-bordered">
+						<li class="nav-item active lead design">
+							<a class="nav-link" id="nav-link-color" href="index.html">Home</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="sport.html">Sport</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="weather.html">Weather</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="tech.html">Technology</a>
+						</li>
+					</ul>
+					
+					<ul class="ml-auto navbar-nav">
+					   <li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#login">Login</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+						</li>
+					</ul>
+					
+					<div style="margin-left:20px">
+						<div class=" input-group">
+							<form class="form-inline my-2 my-lg-0" id="navBarSearchForm" style="padding:7px 15px 0 0">
+								<input class="form-control" style="border-radius:0" type="text" placeholder="Search anything">
+								<div class="input-group-btn">
+									<button class="btn my-2 my-sm-0" style="border-radius:0;background-color:white;padding:7px;cursor:pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+									
+				</div>
+			</nav>	
+			
+            <div class="container col-md-8">
+                <h1>An Island paradise that will adopt you</h1>
+                <div class="col-sm-12" style="margin-left:-14px">
+                    <div class="row">
+                        <div class="col-sm-9" style="color:gray">
+                            <i class="fa fa-clock-o" aria-hidden="true" style="font-size:120%"></i> 21 April 2016<span class="line">Travel</span>
+                        </div>
+                        <div class="col-sm-3 links">
+                            <a href="#" style="color:#3B5998"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#1DA1F2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#615F5D"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <img src="travel6.png">
+                <p style="font-weight:bold">On this fascinating South Pacific island, all 62 residents are related, everyone shares the same surname and can trace their lineage back to one British man.</p>
+                <p>We saw the foam before we heard the breaking waves. My husband Rob and I squinted through the morning sun, trying to pick out the low-lying shoreline of the Palmerston Atoll on the horizon. After sailing for five days through rolling blue swells, the line of white signifying land was a welcome sight. Rob did a little dance in anticipation of spearing a fish for dinner. I was more excited about delving into this bizarre community I’d heard so much about.</p>
+                <p>As the tiny settlement came closer, we hailed the island over the VHF radio to announce our arrival. Within minutes, a scuffed aluminium boat was speeding toward us from inside the protected lagoon. The driver cut the outboard and bobbed alongside our stern.</p>
+                <p>“I'm Simon Marsters,” said the short, shirtless driver. “Has anyone greeted you yet?” We shook our heads. Simon grunted in satisfaction. “Good. I'll be your host. You can use my mooring with that yellow buoy, then I'll take you in for lunch.”</p>
+                <p>Our cruising guidebook had warned us about the “extreme hospitality” of Palmerston. No foreigner is allowed to set foot on shore without first being adopted into a local family. Visitors are encouraged to reciprocate the islanders' hospitality with donations of clothes, pens and other staples. Apparently, we'd now been adopted.</p>
+                <img src="travel6-1.png">
+                <p>Located halfway between the better-known South Pacific sailing ports of Bora Bora and Niue, the Palmerston Atoll is so remote that until 1969 its position on maps was based on Captain Cook's charts from 1774. In fact, Palmerston is the only Cook Island that the prolific Pacific explorer actually set foot on, though the clump of 15 islands are named for him. Cook dubbed the then-uninhabited atoll Palmerston, after Britain's first Lord of the Admiralty.</p>
+                <p>Today  Palmerston is a postcard-perfect paradise with no bank, store or road – islanders have to travel 800km south to the largest island, Rarotonga, to find these modern day conveniences. But what makes this tiny Cook Islands outlier more than just a pretty place are the quirks that footnote its culture: the island has the highest number of freezers per capita in the Southern Hemisphere; locals play volleyball every afternoon except Sunday; and all 62 of its residents are related – everyone on Palmerston shares the same surname and trace their lineage back to one man: William Marsters. </p>
+                <img src="travel6-2.png">
+                <p>A British adventurer, William Marsters landed on uninhabited Palmerston in 1883 to set up a copra (dried coconut) trade with other Polynesian islands. He brought two Polynesian wives from neighbouring Penrhyn, and later recruited a third wife from the same island, producing an impressive colony of 23 children and 134 grandchildren. Before he died in 1899, Marsters divided the 2sqkm atoll into thirds to give each of the three wives and their descendants a share. The residents still govern themselves based on these hypothetical lines in the sand, and cluster their families on their respective chunk of the atoll. Marriage within a family branch is prohibited.</p>
+                <p>Rob and I packed a bag to go ashore with Simon, bringing fishing tackle as a gift, along with notebooks for the kids at the island’s only school.</p>
+                <img src="travel6-3.png">
+                <p>Our host gunned the powerful outboard engine directly toward the waves breaking on the atoll's fringing reef. I held on tight, praying that he wouldn't miss the tiny, 3m wide pass through the reef. As the boat surfed down a wave through the tight gap, coral jutting out on both sides, I was relieved we didn't have to navigate through in our own small rubber dinghy. </p>
+                <p>Once safely inside the lagoon, we skimmed across flat cerulean water toward the bright white sand framing the island. Wind, rain and waves have slowly eroded the atoll, leaving most of it just barely submerged. The highest point on the entire island is only 6m high – a man-made mound called “Refuge Hill” where the residents cluster during summer cyclones. </p>
+                <img src="travel6-4.png">
+                <p>A beached ship greeted us as we stepped ashore, battered, broken and belly up.</p>
+                <p>“Recent wreck?” Rob asked.</p>
+                <p>“Maybe four, five years ago,” replied Simon. His speech was slow to make room for a slight stutter.  “Good wood for building.”</p>
+                <p>He pointed out William Marsters’ original home through the coconut trees. With a rusting tin roof and half-metre-wide planks harvested from 19th-century boat timbers, the long building looked more like a barn than a home. But it served its purpose as a sturdy shelter: the structure has successfully withstood dozens of cyclones over the past 150 years.</p>
+                <img src="travel6-5.png">
+                <p>Several people greeted us as we walked on to Simon’s house. A teenage girl came over to ask where we were heading next, and was disappointed to hear us say Niue. She was looking for a ride south to visit an aunt in Rarotonga.</p>
+                <p>Boats are still the only mode of transportation to and from this atoll. A cargo ship from Rangiroa, the largest city in the Cook Islands, stops by just three times a year to drop off supplies, loading back up with crates full of flash-frozen parrotfish, Palmerston’s only export. Every family has several large freezers filled with this rainbow-coloured, large-scaled reef-grazer.</p>
+                <img src="travel6-6.png">
+                <p>Palmerston residents sometimes hop aboard the cargo ship, squeezing in alongside the chest freezers, to visit neighbouring islands or to catch a flight to New Zealand from Rarotonga or Niue. The only other option for leaving the island is to hitchhike on a passing sailboat. But the window for thumbing a ride is narrow: yachts only travel through this part of the South Pacific from May through September to avoid cyclones and maximize the trade winds.</p>
+                <p>At Simon's small house we sat down to a lunch of flaky, succulent parrotfish – baked with head, tail and fins still attached – with his niece, grandnephew, brother and 89-year-old mother. I asked if they got sick of eating fish. Simon's mother laughed, nodding. She said she preferred to eat “real meat”, referring to the white-tailed tropicbirds that nest throughout the atoll.</p>
+                <img src="travel6-7.png">
+                <p>For dessert, Simon split open two coconuts for Rob and me.</p>
+                <p>“Do you play volleyball?” Simon asked. “We play at 4 pm.”</p>
+                <p>A lifelong volleyball player, Rob's face lit up. “The only thing we like better than volleyball is church,” Simon's niece said. The Palmerston natives attend services daily and several times on Sundays, always dressed in their finest.</p>
+                <p>We agreed to meet the family at 4 pm, and set off to explore on our own. It took us 20 minutes to circle the island, another 10 to walk across the interior’s main path. We passed the construction site for a new solar power station, which will replace the island's unreliable diesel generators with round-the-clock electricity, and stopped at the cemetery, full of Marsters headstones.</p>
+                <img src="travel6-8.png">
+                <p>As we headed toward the volleyball court, A hefty islander wearing bright board shorts waved us over to warm up with the locals. I quickly realized that their volleyball skills far surpassed mine. Across the net from me, Rob held his own. As he adjusted his top after a particularly athletic block, returning a high-five, I noticed that Rob's waist was smaller than most of the players' thighs.</p>
+                <p>As the sun dropped to the horizon, families headed home for dinner.</p>
+                <p>“Tomorrow, we fish. You will join?” Simon asked as he shuttled us back to our sailboat. </p>
+                <p>“Definitely,” Rob replied.</p>
+                <img src="travel6-9.png">
+                <p>We stayed on Palmerston another three days. On the last evening, after volleyball and before dark, Simon sat in our cockpit sipping a cocktail and giving Rob fishing tips. Spear in hand, Rob hopped over the side, determined to finally snag one of Palmerston's famous parrotfish. A few minutes later, he surfaced with a blue-green beauty, as long as his arm and fat as a football. Simon nodded in satisfaction, toasting Rob's success.</p>
+                <p>We feasted that night with our adopted Marsters family, thanking them for their hospitality by sharing fish and more gifts. But without a doubt, Rob and I gained more from that quirky atoll than we could ever give back.</p>
+                
+            </div>
+	
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Login</div>
+
+                        <div class="container">
+                            <input type="text" class="form-control" placeholder="Email" style="margin:20px auto">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto">
+
+                            <div>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember Me</span>
+                                </label>
+                            </div>
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Don't have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#signup" onclick="$('#login').modal('hide')">Sign Up</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                    <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+                        <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Sign Up</div>
+
+                        <div class="container">
+                            <div class="input-group" style="margin:20px auto">
+                              <input type="text" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" title="Enter your First Name">
+                              <input type="text" class="form-control" placeholder="Last Name"data-toggle="tooltip" data-placement="bottom" title="Enter your Last Name">
+                            </div>
+
+                            <input type="email" class="form-control" placeholder="Email" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter your email">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter password">
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Sign Up</button>
+                                <!--<div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>-->
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Already have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#login" onclick="$('#signup').modal('hide')">Login</a></span>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+			
+			<div class="container-fluid" style="background-color:yellow;padding:50px">
+				
+				<p class="lead" style="font-size:40px;text-align:center">Subscribe to our newsletter for free</p>
+				<div class="offset-md-3 col-md-6">
+					<form>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<div style="text-align:center">
+						<button class="btn btn-primary" style="margin-top:15px">Subscribe Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div style="position:fixed;right:15px;bottom:8px;background-color:#333333;padding:3px 5px;z-index:1">
+				<a href="#top" style="color:white"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+			</div>
+			
+			<div class="container-fluid" style="background-color:#333333">
+				<div class="row">
+					<div class="col-md-6">
+						<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News, All Rights Reserved</p>
+					</div>
+					
+					<div class="col-md-3 offset-md-3">
+						<ul style="list-style:none;color:white">
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 13px;margin:5px;background-color:white" href="https://www.facebook.com/amaan.iqbal.90813" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://twitter.com/amaan_iqbal9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 7px;margin:5px;background-color:white" href="https://plus.google.com/u/0/116420960491695673827?prsrc=3" rel="publisher" target="_blank" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://mail.google.com/mail/u/0/#inbox?compose=15c6942575c494ec" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+    </body>
+
+</html>

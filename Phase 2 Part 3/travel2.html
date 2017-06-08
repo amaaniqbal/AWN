@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" href="logo.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>AMAAN World News</title>
+		
+		<style>
+			
+			body {
+				margin:0;
+				padding:0;
+                padding-right: 0    !important;
+				overflow-x:hidden
+			}
+			#nav-link-color {
+				color:white
+			}
+			* {margin:0;padding:0;border:0 none;position: relative; outline: none;}
+            .design > a {
+              text-decoration: none;
+              color: rgba(0,0,0,.4);
+              z-index: 1;
+            }
+            .design > a:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background: #9CF5A6;
+              visibility: hidden;
+              border-radius: 5px;
+              transform: scaleX(0);
+              transition: .25s linear;
+            }
+            .design > a:hover:before,
+            .design > a:focus:before {
+              visibility: visible;
+              transform: scaleX(0.6);
+            }
+            .design a:before {
+                background: rgba(0,0,0,0);
+                box-shadow: 0 0 10px 2px #ffdb00;  
+            }
+			.follow {
+				float:left;
+				padding:5px 10px;
+				margin:5px;
+				background-color:white
+			}
+			.shake:hover {
+			  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			  transform: translate3d(0, 0, 0);
+			  backface-visibility: hidden;
+			  perspective: 1000px;
+			}
+			@keyframes shake {
+			  10%, 90% {
+				transform: translate3d(-1px, 0, 0);
+			  }
+			  20%, 80% {
+				transform: translate3d(2px, 0, 0);
+			  }
+			  30%, 50%, 70% {
+				transform: translate3d(-4px, 0, 0);
+			  }
+			  40%, 60% {
+				transform: translate3d(4px, 0, 0);
+			  }
+			}
+			.sidenav {
+				height: 100%; 
+				width: 0; 
+				position: fixed; 
+				z-index: 1; 
+				top: 0;
+				left: 0;
+				background-color: #111; 
+				overflow-x: hidden; 
+				padding-top: 60px; 
+				transition: 0.5s; 
+			}
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: #818181;
+				display: block;
+				transition: 0.3s
+			}
+			.sidenav a:hover, .offcanvas a:focus{
+				color: #f1f1f1;
+			}
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 25px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+			#main {
+				transition: margin-left .5s	
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 15px;}
+				.sidenav a {font-size: 18px;}
+			}
+            img {
+                width: 100%;
+                height: 400px;
+                margin: 20px auto
+            }
+            .col-md-8 {
+                padding: 30px
+            }
+            h1 {
+                margin-bottom: 25px
+            }
+            .line {
+                padding-left: 10px;
+                border-left: 1px solid gray;
+                margin-left: 10px
+            }
+            .links a {
+                font-size: 120%;
+                padding: 10px
+                
+            }
+            .links a:hover {
+                background-color: #4A235A;
+                color: white !important
+                
+            }
+		</style>
+       
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="world.html">World</a>
+		  <a href="education.html">Education</a>
+		  <a href="travel.html">Travel</a>
+		  <a href="health.html">Health</a>
+		  <a href="#" data-toggle="modal" data-target="#login">Login</a>
+		  <a href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+		  <p class="text-muted" style="font-size:20px;margin:60px auto 5px 35px">MORE</p>
+		  <a href="author.html">Author</a>
+		  <a href="contact.html">Contact</a>
+		  <a href="follow.html">Follow</a>
+          <a href="credits.html">Credits</a>
+		</div>
+		
+		<div id="main">
+			<nav class="navbar navbar-toggleable-lg navbar-light" style="background-color:#4A235A" id="top">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<span class="navbar-brand" onclick="openNav()" style="cursor:pointer">
+					<i class="fa fa-list-ul" aria-hidden="true" style="color:white"></i>
+				</span>
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mt-2 mt-md-0 nav nav-bordered">
+						<li class="nav-item active lead design">
+							<a class="nav-link" id="nav-link-color" href="index.html">Home</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="sport.html">Sport</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="weather.html">Weather</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="tech.html">Technology</a>
+						</li>
+					</ul>
+					
+					<ul class="ml-auto navbar-nav">
+					   <li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#login">Login</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+						</li>
+					</ul>
+					
+					<div style="margin-left:20px">
+						<div class=" input-group">
+							<form class="form-inline my-2 my-lg-0" id="navBarSearchForm" style="padding:7px 15px 0 0">
+								<input class="form-control" style="border-radius:0" type="text" placeholder="Search anything">
+								<div class="input-group-btn">
+									<button class="btn my-2 my-sm-0" style="border-radius:0;background-color:white;padding:7px;cursor:pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+									
+				</div>
+			</nav>	
+			
+            <div class="container col-md-8">
+                <h1>Where 200,000 couples flock each year</h1>
+                <div class="col-sm-12" style="margin-left:-14px">
+                    <div class="row">
+                        <div class="col-sm-9" style="color:gray">
+                            <i class="fa fa-clock-o" aria-hidden="true" style="font-size:120%"></i> 29 May 2017<span class="line">Canada</span>
+                        </div>
+                        <div class="col-sm-3 links">
+                            <a href="#" style="color:#3B5998"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#1DA1F2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#615F5D"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <img src="travel2.png">
+                <p style="font-weight:bold">Despite being a small speck in the Arctic, Prince Leopold Island is one of Canada’s most important seabird colonies.</p>
+                <p>I leaned over the railing on the bow of the icebreaker, The Ocean Endeavour, just as the rocky cliff face of Prince Leopold Island emerged from the fog. The tiny island in the Canadian territory of Nunavut had little vegetation and was almost completely surrounded by sheer cliffs. From here, the peaks appeared lifeless and cold.</p>
+                <p>We were more than 3,200km, from Toronto and yet, our guides assured us, 200,000 couples fly to this island each year.</p>
+                <p>Birds, that is.</p>
+                <img src="travel2-1.png">
+                <p>Even though the island is just 65sqkm, it’s the largest seabird colony in the high Arctic and a federally protected migratory bird sanctuary. “Its claim to fame,” said Tony Gaston, a retired research scientist who’s worked on this island since 1975, “is that it’s got all of the major Arctic species. On a fine day, there isn’t anywhere with a more exciting vista of birds and scenery.”</p>
+                <p>We loaded into a Zodiac – 10 of us in the inflatable boat – and it pitched steeply in the icy water as the ocean swell and arctic wind carried us close to the island’s vertical cliffs. I gripped the sides, hoping that neither my gear nor I would go overboard. As we approached, the cliffs themselves seemed to come alive.</p>
+                <p>Thick-billed murres, black guillemots, black-legged kittiwakes and northern fulmars are the key species, and they arrive by the thousands in May and June. It was now August, and the bird sanctuary was at full occupancy. Birds were everywhere. In the water. In the air. Crammed onto the tiniest ledges of every cliff face. Adults and chicks of different varieties and at various stages of development, all calling to each other at once.</p>
+                <p>It was a giant rocky nursery – complete with babies and noise.</p>
+                <p>Fulmars dived down right beside the Zodiac, splashing us as they tried to snatch a fish or tiny sea butterfly. Some young birds took their first brave launch from the safety of the cliffs and plopped down near us. I wondered if they felt shocked at the frigid temperature of the water. I watched as two male murres, one with a little fledgling swimming alongside, suddenly pecked fiercely at each other, flapping their wings and churning up the water. Then, just as quickly, the father and chick paddled away. Other murres swam as though doing the butterfly stroke, both wings coming out of the water at the same time to propel them forward. The cliffs, air and water were seething with birds.</p>
+                <img src="travel2-2.png">
+                <p>From the base of the cliffs, the island seemed pristine, untouched. From here, I couldn’t see the hut that sits on the table-top surface of the island. For the past 40 years, researchers have been coming here most summers, arriving by plane and landing on a strip of tundra near the cabin. Here, in this remote place, they study environmental contaminants.</p>
+                <p>It’s a stark reminder that nowhere is immune to pollution’s effects. The island is thousands of kilometres from the nearest industrial centre, yet toxic substances like mercury find their way here via air and water. Contaminants infuse into the food chain and get increasingly concentrated the further up the web you go; so seabirds that feast on fish are particularly vulnerable.</p>
+                <img src="travel2.png">                
+                <p>Birgit Braune, a research scientist with Environment and Climate Change Canada, studies contaminant levels in the birds’ eggs. To get the eggs, you have to collect them from the nests – a tricky manoeuver on the fragmented cliffs of Prince Leopold, where the crumbly sandstone and limestone create countless tiny ledges that are perfect nesting sites.</p>
+                <p>“1,000ft cliffs aren’t for the faint of heart,” she said. “We hire expert climbers to go down on ropes.”</p>
+                <p>But descending into the midst of thousands of birds takes tact too. “The climbers take their time,” she said, “and move very slowly and carefully so that no rocks get dislodged and fall down into the colony.” They do their best to minimise disruption to the breeding birds. And they take as few eggs as they need to get the information they’re looking for.</p>
+                <p>The value of doing research in the same place for decades is that you’re able to see trends over time. Braune explained that mercury levels rose in the birds from 1975 to the mid-2000s. But then they started to level off, coinciding with increased regulations on mercury emissions. “That’s good, but now it’s a question of will it turn to a downward trend?” she said. “That’s what you always hope for.”</p>
+                <p>Braune’s findings have played an important role in informing international committees regarding contaminant levels. It’s this information that leads to changes in regulations, like the regulations on DDT in the 1970s that resulted in a drop in DDT levels in seabird eggs. “Regulations work,” she said. “There’s no two ways about it.”</p>
+                <img src="travel2-4.png">
+                <p>Braune stressed how vital the monitoring program is for the Inuit people living in Canada’s north who hunt and fish from these same waters – their breadbasket. “It’s important that this information gets back to the people,” she said, “and gives them an indication of how polluted their grocery store is.”</p>
+                <p>“And at the end of the day, pollution is an international problem,” she said, “so the solution has to be international.”</p>
+                <p>It’s not just the birds that are affected; the island is a hub of activity. Arctic foxes and Arctic hares have been seen on the island. Collared lemmings appeared for the first time a couple of years ago, but haven’t made the island a permanent home. Even caribou and wolves have been seen. But it’s hard to beat the sight of a white gyrfalcon skimming the tops of the cliffs, or, when the weather co-operates and the waves aren’t too big, the vision of 200 beluga whales, an occasional bowhead whale or even narwals swimming in the waters below.</p>
+                <p>The weather on the island makes research here particularly tricky. “It’s predictable, but unfortunately it’s predictably bad!” Gaston said. But there have been noticeable shifts in weather patterns over the years, although it’s hard to tell what that will mean for the island and its winged inhabitants. In the 1970s, bad weather meant fog, but in recent years, they’ve started to see a lot more rain. “It’s really quite striking,” Gaston said, adding, “Have you looked at the recent temperature anomalies in the Arctic - it’s unbelievable!” He was referring to the shockingly warm temperatures reported in much of the Arctic Ocean at the end of 2016 – about 14C above average.</p>
+                <p>“I’m not going to be around to see the end of the polar bear, the ivory gull and the gyrfalcon,” he said. “But there may be kids alive today who will – it’s all snowballing so fast now.”</p>
+                <img src="travel2-5.png">
+                <p>Our Zodiac returned to the ship and I scrambled back on board and headed to the stern. The island shrank as we sailed away and the number of birds dwindled until just a few fulmars zipped past the deck. In a few more weeks, the birds will head to their wintering grounds with their next generation in tow. I wondered if I’ll ever get to see this sight again. I’m incredibly fortunate to have seen it once, but I’m craving the view from the top of the island – where only researchers are allowed to go. I want to stand at the edge, looking down at the birds and scanning the waves with the hopes of spotting a beluga.</p>
+            </div>
+	
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Login</div>
+
+                        <div class="container">
+                            <input type="text" class="form-control" placeholder="Email" style="margin:20px auto">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto">
+
+                            <div>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember Me</span>
+                                </label>
+                            </div>
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Don't have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#signup" onclick="$('#login').modal('hide')">Sign Up</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                    <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+                        <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Sign Up</div>
+
+                        <div class="container">
+                            <div class="input-group" style="margin:20px auto">
+                              <input type="text" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" title="Enter your First Name">
+                              <input type="text" class="form-control" placeholder="Last Name"data-toggle="tooltip" data-placement="bottom" title="Enter your Last Name">
+                            </div>
+
+                            <input type="email" class="form-control" placeholder="Email" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter your email">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter password">
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Sign Up</button>
+                                <!--<div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>-->
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Already have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#login" onclick="$('#signup').modal('hide')">Login</a></span>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+			
+			<div class="container-fluid" style="background-color:yellow;padding:50px">
+				
+				<p class="lead" style="font-size:40px;text-align:center">Subscribe to our newsletter for free</p>
+				<div class="offset-md-3 col-md-6">
+					<form>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<div style="text-align:center">
+						<button class="btn btn-primary" style="margin-top:15px">Subscribe Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div style="position:fixed;right:15px;bottom:8px;background-color:#333333;padding:3px 5px;z-index:1">
+				<a href="#top" style="color:white"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+			</div>
+			
+			<div class="container-fluid" style="background-color:#333333">
+				<div class="row">
+					<div class="col-md-6">
+						<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News, All Rights Reserved</p>
+					</div>
+					
+					<div class="col-md-3 offset-md-3">
+						<ul style="list-style:none;color:white">
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 13px;margin:5px;background-color:white" href="https://www.facebook.com/amaan.iqbal.90813" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://twitter.com/amaan_iqbal9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 7px;margin:5px;background-color:white" href="https://plus.google.com/u/0/116420960491695673827?prsrc=3" rel="publisher" target="_blank" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://mail.google.com/mail/u/0/#inbox?compose=15c6942575c494ec" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+    </body>
+
+</html>

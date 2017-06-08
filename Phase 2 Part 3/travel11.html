@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" href="logo.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>AMAAN World News</title>
+		
+		<style>
+			
+			body {
+				margin:0;
+				padding:0;
+                padding-right: 0    !important;
+				overflow-x:hidden
+			}
+			#nav-link-color {
+				color:white
+			}
+			* {margin:0;padding:0;border:0 none;position: relative; outline: none;}
+            .design > a {
+              text-decoration: none;
+              color: rgba(0,0,0,.4);
+              z-index: 1;
+            }
+            .design > a:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background: #9CF5A6;
+              visibility: hidden;
+              border-radius: 5px;
+              transform: scaleX(0);
+              transition: .25s linear;
+            }
+            .design > a:hover:before,
+            .design > a:focus:before {
+              visibility: visible;
+              transform: scaleX(0.6);
+            }
+            .design a:before {
+                background: rgba(0,0,0,0);
+                box-shadow: 0 0 10px 2px #ffdb00;  
+            }
+			.follow {
+				float:left;
+				padding:5px 10px;
+				margin:5px;
+				background-color:white
+			}
+			.shake:hover {
+			  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			  transform: translate3d(0, 0, 0);
+			  backface-visibility: hidden;
+			  perspective: 1000px;
+			}
+			@keyframes shake {
+			  10%, 90% {
+				transform: translate3d(-1px, 0, 0);
+			  }
+			  20%, 80% {
+				transform: translate3d(2px, 0, 0);
+			  }
+			  30%, 50%, 70% {
+				transform: translate3d(-4px, 0, 0);
+			  }
+			  40%, 60% {
+				transform: translate3d(4px, 0, 0);
+			  }
+			}
+			.sidenav {
+				height: 100%; 
+				width: 0; 
+				position: fixed; 
+				z-index: 1; 
+				top: 0;
+				left: 0;
+				background-color: #111; 
+				overflow-x: hidden; 
+				padding-top: 60px; 
+				transition: 0.5s; 
+			}
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: #818181;
+				display: block;
+				transition: 0.3s
+			}
+			.sidenav a:hover, .offcanvas a:focus{
+				color: #f1f1f1;
+			}
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 25px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+			#main {
+				transition: margin-left .5s	
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 15px;}
+				.sidenav a {font-size: 18px;}
+			}
+            img {
+                width: 100%;
+                height: 400px;
+                margin: 20px auto
+            }
+            .col-md-8 {
+                padding: 30px
+            }
+            h1 {
+                margin-bottom: 25px
+            }
+            .line {
+                padding-left: 10px;
+                border-left: 1px solid gray;
+                margin-left: 10px
+            }
+            .links a {
+                font-size: 120%;
+                padding: 10px
+                
+            }
+            .links a:hover {
+                background-color: #4A235A;
+                color: white !important
+                
+            }
+		</style>
+       
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="world.html">World</a>
+		  <a href="education.html">Education</a>
+		  <a href="travel.html">Travel</a>
+		  <a href="health.html">Health</a>
+		  <a href="#" data-toggle="modal" data-target="#login">Login</a>
+		  <a href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+		  <p class="text-muted" style="font-size:20px;margin:60px auto 5px 35px">MORE</p>
+		  <a href="author.html">Author</a>
+		  <a href="contact.html">Contact</a>
+		  <a href="follow.html">Follow</a>
+          <a href="credits.html">Credits</a>
+		</div>
+		
+		<div id="main">
+			<nav class="navbar navbar-toggleable-lg navbar-light" style="background-color:#4A235A" id="top">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<span class="navbar-brand" onclick="openNav()" style="cursor:pointer">
+					<i class="fa fa-list-ul" aria-hidden="true" style="color:white"></i>
+				</span>
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mt-2 mt-md-0 nav nav-bordered">
+						<li class="nav-item active lead design">
+							<a class="nav-link" id="nav-link-color" href="index.html">Home</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="sport.html">Sport</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="weather.html">Weather</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="tech.html">Technology</a>
+						</li>
+					</ul>
+					
+					<ul class="ml-auto navbar-nav">
+					   <li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#login">Login</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+						</li>
+					</ul>
+					
+					<div style="margin-left:20px">
+						<div class=" input-group">
+							<form class="form-inline my-2 my-lg-0" id="navBarSearchForm" style="padding:7px 15px 0 0">
+								<input class="form-control" style="border-radius:0" type="text" placeholder="Search anything">
+								<div class="input-group-btn">
+									<button class="btn my-2 my-sm-0" style="border-radius:0;background-color:white;padding:7px;cursor:pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+									
+				</div>
+			</nav>	
+			
+            <div class="container col-md-8">
+                <h1>Have you visited the Indian valley of charms yet?</h1>
+                <div class="col-sm-12" style="margin-left:-14px">
+                    <div class="row">
+                        <div class="col-sm-9" style="color:gray">
+                            <i class="fa fa-clock-o" aria-hidden="true" style="font-size:120%"></i> 14 May 2017<span class="line">Travel</span>
+                        </div>
+                        <div class="col-sm-3 links">
+                            <a href="#" style="color:#3B5998"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#1DA1F2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#615F5D"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <img src="travel11.png">
+                <p style="font-weight:bold">Set in the Karakoram ranges, Nubra Valley stills holds on to its quaint old-world charm.</p>
+                <p>The surprisingly smooth black tar road winds parallel to the river of silver sand. We are on our way to Nubra, 150 km from Ladakh's capital city of Leh. I watch the river Shyok - a tributary of the great Indus river - transform itself from water to dancing sand. Our destination in Nubra is the Mystique Meadows, a boutique camp in Hundar.</p>
+                <p>The drive to Nubra takes about five hours from Leh. One has to cross the Khardung La, which is said to be the highest motorable road in the world. The roads are remarkably well maintained except for a short stretch right near the pass where it is a bit bumpy. The constant snow eats away the roads, our driver tells us apologetically. But the awe-inspiring views take one's mind away from the slight physical discomfort.</p>
+                <img src="travel11-1.png">
+                <p style="font-weight:bold">SPOTTING THE SIGN</p>
+                <p>At the pass itself, one is not advised to stay for more than a few minutes unless the body is acclimatised to the altitude.</p>
+                <p>Seeing the helpful army jawans walking around, one wonders how these men from different parts of the country cope with a posting to one of the highest points in the world. There is a sign, which announces that you have reached the pass and quite incredibly, a souvenir shop to mark it. There is an army outpost and first aid centre for anyone who might need medical assistance and then there are the mountains. The peaks are covered with snow the whole year around. And not only the lack of oxygen, but the breathtaking views might account in part, for the shortness of breath and the sense of giddy excitement.</p>
+                <p>As the road now winds down towards the valley, the snow gives way to boulders and finally to the sand bed. In the distance, the shimmering images of camels and men walking can just be seen. But this immediate view is cut off as one enters the narrow lane towards the campsite and only the distant snow capped peaks are visible standing silent as sentinels.</p>
+                <img src="travel11-2.png"> 
+                <p style="font-weight:bold">REACHING THE MEADOWS</p>
+                <p>Set in the valley of the Ladakh and Karakoram ranges, Nubra is popular as a tourist destination. The few months access means it retains its quaint old world charm. April to June and September to December are the best times to visit.</p>
+                <p>The region has tiny villages within it and its capital is Diskit, home to one of the oldest monasteries in the area, built sometime in 1420 AD. The town itself has little more to offer other than the usual charms of a hill town with its sleepy establishments and peculiar wares. A little further on from Diskit is Hundar, another lovely little village filled with tents, camps and resorts. As one drives through the narrow winding roads of what is slightly larger than a valley village, you spot the intriguing signpost, which says Earth Homes, Mystique Meadows. Hundar is in the oasis of this desert region and so, as one turns off the main road, the desert gives way to tall grass and poplar trees.</p>
+                <p>The narrow streets are bordered by a cacophony of white boards. The price of accomodation at 'Earth Homes, Mystique Meadows' starts from Rs 3,025 per night. The tents one see on the camping grounds behind high brick walls, look basic and after that drive, we are hoping there is a bit of comfort at the end of the journey. Our fears are belayed when we reach the Earth Homes. The little circular cottages are built of locally sourced materials and are covered overhead with canvas. As one enters these cottages, the fresh bed and the light streaming in through the windows make it seem like this is perhaps the most obvious way to live in such an area.</p>
+                <img src="travel11-3.png">
+                <p style="font-weight:bold">LET THE HOLIDAY BEGIN</p>
+                <p>The sharp wind outside makes the canvas canopy ripple and wave. The roof has been pegged down with stakes, which are visible outside and as Stanzin Rabgais and his family, who own and runs this resort assures us, are quite secure. The bed too is distinctive; a well thought out structure that is built for relaxing. It is a sloping wood construction that rises from the wooden floor and merges into the walls. This is great for lying and drinking cups of hot tea as the frequent storms rage outside. The frame around the bed holds books, kettles, chargers and anything else one might want on a holiday. But since they all have their nooks, there is no fear of bumping into them or tipping them over for everything to end up in a muddle in the middle of the white bed sheets. The philosophy of clean lines and efficiency reminds one of the Bauhaus ethic and as if on cue, Stanzin mentions that his friend, a German architect, helped design these cottages.</p>
+                <p>The staff here is just as friendly and uncomplaining as one could wish and seem genuinely concerned to make the holiday as easy and stress-free as one could hope for, though this hospitality seems to be a part of Ladakhi nature as all the people you encounter are friendly. In the evening, they light up a bonfire so that the residents can sit out and admire the star filled sky. There are also sets of bamboo chairs outside each cottage, set a slight distance from each other so that one can sit out in the afternoon sun or watch the sunset.</p>
+                <p>FROM FARM TO FORK</p>
+                <p>The Earth Homes have a farm from which produce is sourced for the simple but delicious meals, the thukpa or noodle soup, a local delicacy being particularly gratifying.</p>
+                <p>On arrival, the receptionist assures us that we can let them know if we have any special dietary requirements as they cater for all diets and can make any type of meal - vegetarian, Jain and vegan included.</p>
+                <p>From the camp, one can make day trips to the old monasteries in the area. It seems so appropriate that travelling priests built these temple structures in such stern surroundings because the austere mountains themselves are robed in the colours of the monks and nuns and seem to be in calm contemplation.</p>
+                <p>There is a statue a few minutes from Hundar known as the Maitreya or the future Buddha, maintained by the Diskit monastery. Under the gaze of this image in bronze and stone, one can take Bactrian camel rides into the desert, to marvel at the present. These animals make the trip around the ever changing dunes with their companions, the men, who earn from them and feed them, walking side by side on the same sandy route. They have made these trips every summer for twenty years, one of the men tells me. The beautiful double humped camels have enchanting names - Marco, Norgay, Norbu. It seems that the world came here for a while and stopped to record its story in the names of these animals before passing on.</p>
+            </div>
+	
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Login</div>
+
+                        <div class="container">
+                            <input type="text" class="form-control" placeholder="Email" style="margin:20px auto">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto">
+
+                            <div>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember Me</span>
+                                </label>
+                            </div>
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Don't have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#signup" onclick="$('#login').modal('hide')">Sign Up</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                    <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+                        <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Sign Up</div>
+
+                        <div class="container">
+                            <div class="input-group" style="margin:20px auto">
+                              <input type="text" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" title="Enter your First Name">
+                              <input type="text" class="form-control" placeholder="Last Name"data-toggle="tooltip" data-placement="bottom" title="Enter your Last Name">
+                            </div>
+
+                            <input type="email" class="form-control" placeholder="Email" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter your email">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter password">
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Sign Up</button>
+                                <!--<div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>-->
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Already have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#login" onclick="$('#signup').modal('hide')">Login</a></span>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+			
+			<div class="container-fluid" style="background-color:yellow;padding:50px">
+				
+				<p class="lead" style="font-size:40px;text-align:center">Subscribe to our newsletter for free</p>
+				<div class="offset-md-3 col-md-6">
+					<form>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<div style="text-align:center">
+						<button class="btn btn-primary" style="margin-top:15px">Subscribe Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div style="position:fixed;right:15px;bottom:8px;background-color:#333333;padding:3px 5px;z-index:1">
+				<a href="#top" style="color:white"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+			</div>
+			
+			<div class="container-fluid" style="background-color:#333333">
+				<div class="row">
+					<div class="col-md-6">
+						<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News, All Rights Reserved</p>
+					</div>
+					
+					<div class="col-md-3 offset-md-3">
+						<ul style="list-style:none;color:white">
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 13px;margin:5px;background-color:white" href="https://www.facebook.com/amaan.iqbal.90813" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://twitter.com/amaan_iqbal9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 7px;margin:5px;background-color:white" href="https://plus.google.com/u/0/116420960491695673827?prsrc=3" rel="publisher" target="_blank" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://mail.google.com/mail/u/0/#inbox?compose=15c6942575c494ec" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+    </body>
+
+</html>
