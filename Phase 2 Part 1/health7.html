@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" href="logo.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>AMAAN World News</title>
+		
+		<style>
+			
+			body {
+				margin:0;
+				padding:0;
+                padding-right: 0    !important;
+				overflow-x:hidden
+			}
+			#nav-link-color {
+				color:white
+			}
+			* {margin:0;padding:0;border:0 none;position: relative; outline: none;}
+            .design > a {
+              text-decoration: none;
+              color: rgba(0,0,0,.4);
+              z-index: 1;
+            }
+            .design > a:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background: #9CF5A6;
+              visibility: hidden;
+              border-radius: 5px;
+              transform: scaleX(0);
+              transition: .25s linear;
+            }
+            .design > a:hover:before,
+            .design > a:focus:before {
+              visibility: visible;
+              transform: scaleX(0.6);
+            }
+            .design a:before {
+                background: rgba(0,0,0,0);
+                box-shadow: 0 0 10px 2px #ffdb00;  
+            }
+			.follow {
+				float:left;
+				padding:5px 10px;
+				margin:5px;
+				background-color:white
+			}
+			.shake:hover {
+			  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			  transform: translate3d(0, 0, 0);
+			  backface-visibility: hidden;
+			  perspective: 1000px;
+			}
+			@keyframes shake {
+			  10%, 90% {
+				transform: translate3d(-1px, 0, 0);
+			  }
+			  20%, 80% {
+				transform: translate3d(2px, 0, 0);
+			  }
+			  30%, 50%, 70% {
+				transform: translate3d(-4px, 0, 0);
+			  }
+			  40%, 60% {
+				transform: translate3d(4px, 0, 0);
+			  }
+			}
+			.sidenav {
+				height: 100%; 
+				width: 0; 
+				position: fixed; 
+				z-index: 1; 
+				top: 0;
+				left: 0;
+				background-color: #111; 
+				overflow-x: hidden; 
+				padding-top: 60px; 
+				transition: 0.5s; 
+			}
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: #818181;
+				display: block;
+				transition: 0.3s
+			}
+			.sidenav a:hover, .offcanvas a:focus{
+				color: #f1f1f1;
+			}
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 25px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+			#main {
+				transition: margin-left .5s	
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 15px;}
+				.sidenav a {font-size: 18px;}
+			}
+            img {
+                width: 100%;
+                height: 400px;
+                margin: 20px auto
+            }
+            .col-md-8 {
+                padding: 30px
+            }
+            h1 {
+                margin-bottom: 25px
+            }
+            .line {
+                padding-left: 10px;
+                border-left: 1px solid gray;
+                margin-left: 10px
+            }
+            .links a {
+                font-size: 120%;
+                padding: 10px
+                
+            }
+            .links a:hover {
+                background-color: #4A235A;
+                color: white !important
+                
+            }
+		</style>
+       
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="world.html">World</a>
+		  <a href="education.html">Education</a>
+		  <a href="travel.html">Travel</a>
+		  <a href="health.html">Health</a>
+		  <a href="#" data-toggle="modal" data-target="#login">Login</a>
+		  <a href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+		  <p class="text-muted" style="font-size:20px;margin:60px auto 5px 35px">MORE</p>
+		  <a href="author.html">Author</a>
+		  <a href="contact.html">Contact</a>
+		  <a href="follow.html">Follow</a>
+          <a href="credits.html">Credits</a>
+		</div>
+		
+		<div id="main">
+			<nav class="navbar navbar-toggleable-lg navbar-light" style="background-color:#4A235A" id="top">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<span class="navbar-brand" onclick="openNav()" style="cursor:pointer">
+					<i class="fa fa-list-ul" aria-hidden="true" style="color:white"></i>
+				</span>
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mt-2 mt-md-0 nav nav-bordered">
+						<li class="nav-item active lead design">
+							<a class="nav-link" id="nav-link-color" href="index.html">Home</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="sport.html">Sport</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="weather.html">Weather</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="tech.html">Technology</a>
+						</li>
+					</ul>
+					
+					<ul class="ml-auto navbar-nav">
+					   <li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#login">Login</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+						</li>
+					</ul>
+					
+					<div style="margin-left:20px">
+						<div class=" input-group">
+							<form class="form-inline my-2 my-lg-0" id="navBarSearchForm" style="padding:7px 15px 0 0">
+								<input class="form-control" style="border-radius:0" type="text" placeholder="Search anything">
+								<div class="input-group-btn">
+									<button class="btn my-2 my-sm-0" style="border-radius:0;background-color:white;padding:7px;cursor:pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+									
+				</div>
+			</nav>	
+			
+            <div class="container col-md-8">
+                <h1>What would you try for a healthier you?</h1>
+                <div class="col-sm-12" style="margin-left:-14px">
+                    <div class="row">
+                        <div class="col-sm-9" style="color:gray">
+                            <i class="fa fa-clock-o" aria-hidden="true" style="font-size:120%"></i> 30 May 2017<span class="line">Health</span>
+                        </div>
+                        <div class="col-sm-3 links">
+                            <a href="#" style="color:#3B5998"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#1DA1F2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#615F5D"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <img src="health5.png">
+                <p style="font-weight:bold">Goat yoga participants try to stay in a yoga pose as a young goat walks over them at the Welcome Home Ranch in Arizona</p>
+                <p>Ever convinced yourself that buying a hula hoop or picking up aerial gymnastics is just the thing to get back in shape? You're not alone.</p>
+                <p>The sea of weird and wonderful classes now available has had most people contemplating at least one new talent or skill that they believe will make them more fit, limber or relaxed.</p>
+                <p>Trampolining, meditation, barre classes and pole dancing are fairly well-established. Various iterations of yoga are joining in, including more unusual formats alongside goats or cats, or encouraging laughter as you hold that downward dog.</p>
+                <p>The latest addition to the menu in the UK is napercise (really!), in which the sleep-deprived can snooze in a gymnasium for 60 minutes, with beds replacing treadmills and atmospheric sounds replacing thumping tunes.</p>
+                <p>If sleeping in a gym or stretching amongst goats seems crazy, it's worth noting that dancing classes such as Zumba and salsa were, at one time, not the norm.</p>
+                <p>"There are so many weird things coming out today," said Hannah Moir, a health and fitness researcher at Kingston University in the UK. "But there's no harm in the variety. It's good."</p>
+                <p>Moir's research focuses on the appeal and health benefits of novel physical activities.</p>
+                <p>Along with most public health officials, Moir is well aware that most of the population -- both in the UK and around the world -- is not active enough or meeting the minimum requirements for good health. So anything that helps get people off the couch is worth it in her eyes.</p>
+                <p>"These classes are helping to meet different people's needs and interests," Moir said, adding that people are then "more likely to maintain, adhere and benefit."</p>
+                <p style="font-weight:bold">The (surprising) benefits of Zumba and salsa</p>
+                <p>In a recent study, Moir and her team explored one fitness trend that has come to dominate the globe in gyms, studios, community halls and even hospitals: Zumba.</p>
+                <p>Away from its popularity, the team wanted to calculate the true benefits -- in terms of heart health, calories and mental health -- of strutting your stuff to Latin beats.</p>
+                <p>"A lot of people don't look at dancing as exercise," she said. With classes like salsa or Zumba, people "don't typically join for the physical activity side, more for the social interaction."</p>
+                <p>In one study, Moir and her team analyzed the oxygen uptake and heart rates of 24 people who were asked to attend two Zumba classes and two partnered salsa classes, each lasting an hour. The participants wore heart-rate monitors and devices that monitored their movements to measure the physical impact.</p>
+                <p>Their psychological impact was also measured by asking participants to rate how they're feeling using a scale.</p>
+                <p>"There was a lot pf psychological benefit," Moir said. "We found improvements in their well-being and reduced psychological stress."</p>
+                <img src="health7-1.png">
+                <p>The level of physical activity was found to be moderate to vigorous, with people burning between 400 and 450 calories in one class. This is similar to one hour of light jogging or running for 30 minutes, said Moir.</p>
+                <p>In a similar vein, the waves of new classes filling gym schedules could have more benefits than people realize.</p>
+                <p>Moir believes that most people like a challenge and to try new things, and classes like aerial yoga and trapeze give insight into the "previously closed occupation" of being in the circus.</p>
+                <p>"It's nice that it's now accessible," she said.</p>
+                <p style="font-weight:bold">Captivating through curiosity</p>
+                <p>"We hung from ropes and swung upside down," said Mindy Caplan, a certified exercise physiologist with the American College of Sports Medicine who recently tried out a swing yoga class.</p>
+                <p>Caplan is a group fitness instructor, teaching more traditional classes such as yoga, Pilates, step aerobics and basic muscle training in Albuquerque, New Mexico.</p>
+                <p>In recent months, she also attended ribbon dancing and hula hooping classes at one of the studios where she teaches.</p>
+                <p>"It was out of curiosity," she said. "They were fun."</p>
+                <p>But Caplan admitted that those classes did not appeal to her enough to become a regular thing. "To me, it seemed a little gimmicky, and maybe it wasn't the right intensity," but anything that gets otherwise sedentary people on their feet is a win.</p>
+                <p>"Most gyms and studios teach basic classes, but every once in a while, you see something new pop up," she said. "Their popularity is not the same as the basic classes ... but if something comes up to get people moving, that's a good thing."</p>
+                <p>A healthy diet and increased physical activity are public health priorities around the world, due to the fact that one in five adults is predicted to be obese by 2025 -- less than a decade from now -- according to the World Health Organization.</p>
+                <p>More than 42 million children under the age of 5 were overweight in 2015, which is likely to carry on into their adolescence and adulthood.</p>
+                <p>Moir hopes that the new classes and fitness trends will eventually filter down into schools to entice kids in the same way curious adults are being lured toward a gym or studio.</p>
+                <p>"Our physical activity and behavior is influenced by how active we are in our childhood," she said. "These new activities ... at school might encourage people to be more active throughout life."</p>
+                <p style="font-weight:bold">Know what works for you</p>
+                <p>Moir and Caplan add, however, that it is important for people to "think about why they are signing up," to ensure that they choose the right class for them -- one they are more likely to stick to. "People have different health needs," Moir said.</p>
+                <p>For example, some people may want to work up a sweat with high-intensity exercise, while others may want to burn calories more progressively or simply to release stress. Another factor is injuries or physiques, as people with joint problems or who are obese might opt for less-intense activities.</p>
+                <p>Moir admitted that she hates running and that Zumba classes were not challenging enough for her, but she is an avid cyclist.</p>
+                <p>For others, she says, a class may be more about mental health and well-being, as opposed to burning calories.</p>
+                <p>"Pole dancing is quite intense and hard work, and from that, you will use energy," she said. "While breathing yoga is good for stress release, and more dynamic yoga or Pilates can aid both physical and psychological well-being."</p>
+                <p>In general, people want to better themselves and focus on their health and fitness, not just losing weight, Caplan said of those who attend her classes.</p>
+                <p>Caplan believes the basic classes are here to stay, while trends such as hula hooping and trampolining may eventually pass. But regardless of what stays and what goes, the key is the allure.</p>
+                <p>"It's important for people to try different things and if they like something, stick with it," she said. "As long as it keeps them going, it doesn't matter."</p>
+                <p>So if you've forgotten how to move down a pole with control, are desperate to beat your daughter on the hula hoop or are longing to join Cirque du Soleil, just get out and do it.</p>
+            </div>
+	
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Login</div>
+
+                        <div class="container">
+                            <input type="text" class="form-control" placeholder="Email" style="margin:20px auto">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto">
+
+                            <div>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember Me</span>
+                                </label>
+                            </div>
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Don't have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#signup" onclick="$('#login').modal('hide')">Sign Up</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                    <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+                        <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Sign Up</div>
+
+                        <div class="container">
+                            <div class="input-group" style="margin:20px auto">
+                              <input type="text" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" title="Enter your First Name">
+                              <input type="text" class="form-control" placeholder="Last Name"data-toggle="tooltip" data-placement="bottom" title="Enter your Last Name">
+                            </div>
+
+                            <input type="email" class="form-control" placeholder="Email" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter your email">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter password">
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Sign Up</button>
+                                <!--<div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>-->
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Already have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#login" onclick="$('#signup').modal('hide')">Login</a></span>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+			
+			<div class="container-fluid" style="background-color:yellow;padding:50px">
+				
+				<p class="lead" style="font-size:40px;text-align:center">Subscribe to our newsletter for free</p>
+				<div class="offset-md-3 col-md-6">
+					<form>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<div style="text-align:center">
+						<button class="btn btn-primary" style="margin-top:15px">Subscribe Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div style="position:fixed;right:15px;bottom:8px;background-color:#333333;padding:3px 5px;z-index:1">
+				<a href="#top" style="color:white"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+			</div>
+			
+			<div class="container-fluid" style="background-color:#333333">
+				<div class="row">
+					<div class="col-md-6">
+						<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News, All Rights Reserved</p>
+					</div>
+					
+					<div class="col-md-3 offset-md-3">
+						<ul style="list-style:none;color:white">
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 13px;margin:5px;background-color:white" href="https://www.facebook.com/amaan.iqbal.90813" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://twitter.com/amaan_iqbal9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 7px;margin:5px;background-color:white" href="https://plus.google.com/u/0/116420960491695673827?prsrc=3" rel="publisher" target="_blank" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://mail.google.com/mail/u/0/#inbox?compose=15c6942575c494ec" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+    </body>
+
+</html>

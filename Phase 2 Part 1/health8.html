@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" href="logo.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>AMAAN World News</title>
+		
+		<style>
+			
+			body {
+				margin:0;
+				padding:0;
+                padding-right: 0    !important;
+				overflow-x:hidden
+			}
+			#nav-link-color {
+				color:white
+			}
+			* {margin:0;padding:0;border:0 none;position: relative; outline: none;}
+            .design > a {
+              text-decoration: none;
+              color: rgba(0,0,0,.4);
+              z-index: 1;
+            }
+            .design > a:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background: #9CF5A6;
+              visibility: hidden;
+              border-radius: 5px;
+              transform: scaleX(0);
+              transition: .25s linear;
+            }
+            .design > a:hover:before,
+            .design > a:focus:before {
+              visibility: visible;
+              transform: scaleX(0.6);
+            }
+            .design a:before {
+                background: rgba(0,0,0,0);
+                box-shadow: 0 0 10px 2px #ffdb00;  
+            }
+			.follow {
+				float:left;
+				padding:5px 10px;
+				margin:5px;
+				background-color:white
+			}
+			.shake:hover {
+			  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			  transform: translate3d(0, 0, 0);
+			  backface-visibility: hidden;
+			  perspective: 1000px;
+			}
+			@keyframes shake {
+			  10%, 90% {
+				transform: translate3d(-1px, 0, 0);
+			  }
+			  20%, 80% {
+				transform: translate3d(2px, 0, 0);
+			  }
+			  30%, 50%, 70% {
+				transform: translate3d(-4px, 0, 0);
+			  }
+			  40%, 60% {
+				transform: translate3d(4px, 0, 0);
+			  }
+			}
+			.sidenav {
+				height: 100%; 
+				width: 0; 
+				position: fixed; 
+				z-index: 1; 
+				top: 0;
+				left: 0;
+				background-color: #111; 
+				overflow-x: hidden; 
+				padding-top: 60px; 
+				transition: 0.5s; 
+			}
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: #818181;
+				display: block;
+				transition: 0.3s
+			}
+			.sidenav a:hover, .offcanvas a:focus{
+				color: #f1f1f1;
+			}
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 25px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+			#main {
+				transition: margin-left .5s	
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 15px;}
+				.sidenav a {font-size: 18px;}
+			}
+            img {
+                width: 100%;
+                height: 400px;
+                margin: 20px auto
+            }
+            .col-md-8 {
+                padding: 30px
+            }
+            h1 {
+                margin-bottom: 25px
+            }
+            .line {
+                padding-left: 10px;
+                border-left: 1px solid gray;
+                margin-left: 10px
+            }
+            .links a {
+                font-size: 120%;
+                padding: 10px
+                
+            }
+            .links a:hover {
+                background-color: #4A235A;
+                color: white !important
+                
+            }
+		</style>
+       
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="world.html">World</a>
+		  <a href="education.html">Education</a>
+		  <a href="travel.html">Travel</a>
+		  <a href="health.html">Health</a>
+		  <a href="#" data-toggle="modal" data-target="#login">Login</a>
+		  <a href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+		  <p class="text-muted" style="font-size:20px;margin:60px auto 5px 35px">MORE</p>
+		  <a href="author.html">Author</a>
+		  <a href="contact.html">Contact</a>
+		  <a href="follow.html">Follow</a>
+          <a href="credits.html">Credits</a>
+		</div>
+		
+		<div id="main">
+			<nav class="navbar navbar-toggleable-lg navbar-light" style="background-color:#4A235A" id="top">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<span class="navbar-brand" onclick="openNav()" style="cursor:pointer">
+					<i class="fa fa-list-ul" aria-hidden="true" style="color:white"></i>
+				</span>
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mt-2 mt-md-0 nav nav-bordered">
+						<li class="nav-item active lead design">
+							<a class="nav-link" id="nav-link-color" href="index.html">Home</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="sport.html">Sport</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="weather.html">Weather</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="tech.html">Technology</a>
+						</li>
+					</ul>
+					
+					<ul class="ml-auto navbar-nav">
+					   <li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#login">Login</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+						</li>
+					</ul>
+					
+					<div style="margin-left:20px">
+						<div class=" input-group">
+							<form class="form-inline my-2 my-lg-0" id="navBarSearchForm" style="padding:7px 15px 0 0">
+								<input class="form-control" style="border-radius:0" type="text" placeholder="Search anything">
+								<div class="input-group-btn">
+									<button class="btn my-2 my-sm-0" style="border-radius:0;background-color:white;padding:7px;cursor:pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+									
+				</div>
+			</nav>	
+			
+            <div class="container col-md-8">
+                <h1>What makes a good speller (or a bad one)?</h1>
+                <div class="col-sm-12" style="margin-left:-14px">
+                    <div class="row">
+                        <div class="col-sm-9" style="color:gray">
+                            <i class="fa fa-clock-o" aria-hidden="true" style="font-size:120%"></i> 01 June 2017<span class="line">Health</span>
+                        </div>
+                        <div class="col-sm-3 links">
+                            <a href="#" style="color:#3B5998"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#1DA1F2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" style="color:#615F5D"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <img src="health8.png">
+                <p style="font-weight:bold">The Science of spelling</p>
+                <p>By the time he was 6 or 7 years old, Sameer Mishra was a pretty confident speller. His memory was sharp, he liked to read, and he actually enjoyed the weekly tests at school. While his parents drilled his older sister, a National Spelling Bee competitor, he'd angle for his own list of words.</p>
+                <p>Within a few years, he made it to the big bee in Washington, too. On his fourth and final trip there in 2008, he won by spelling the word "guerdon," meaning "something that one has earned or gained." Yes, Mishra is a good speller.</p>
+                <p>But everyone knows people who claim they're terrible at it and never were any good. They'd rather just use spellcheck, they say. To Mishra, they'll confess, embarrassed, "I misspelled 'banana' in the fifth-grade spelling bee" and just gave up.</p>
+                <p>So what is it that separates the spelling stars from the dictionary-deficient?</p>
+                <p>For those on stage at the National Spelling Bee this week, it often meant five hours a day memorizing words or studying etymology. For the perfectly good, non-bee spellers among us, it might mean they enjoyed reading from an early age.</p>
+                <p>But research published in 2016 in the journal Brain suggests it has something to do with how some people's brains retrieve words -- or don't -- and how we manage to get them out -- or not.</p>
+                <p>For as easy as the teens on stage make it look to spell "scherenschnitte" and "nunatak," there's a lot happening inside to produce each word.</p>
+                <p>Start with something a little simpler: "If I tell you a word like 'yacht' and ask you to spell it, maybe you can do it," said Brenda Rapp, a cognitive science professor at Johns Hopkins University and lead author of the Brain study.</p>
+                <p>If you heard the word and came up with y-a-c-h-t, it probably emerged from the areas of the brain that hold orthographic long-term memory, where spelling knowledge is stored.</p>
+                <p>If you're not familiar with the term of Dutch origin meaning a recreational watercraft, maybe you'd come up with something like y-o-t or y-a-h-t. You'd probably miss the "ch," but perhaps you'd identify a reasonable spelling that converts the sounds to letters, Rapp said. That process takes place in yet another part of the brain.</p>
+                <p>In either case, you had to hold those letters in mind, convert them into names or shapes and produce them in the right order. That, Rapp said, is orthographic working memory.</p>
+                <p>Each component plays a part in spelling a word, and each happens in a different part of the brain's left hemisphere.</p>
+                <p>Rapp and her colleagues studied 33 people who had trouble spelling after strokes. They struggled with long-term memory, working memory or both. The types of spelling errors they produced often depended on where their brains were damaged.</p>
+                <p>So what does that mean for those who just can't spell? People who haven't experienced a stroke or been diagnosed with something like dyslexia, which is closely related to dysgraphia, a word for poor spelling?</p>
+                <p>"To be a really good speller, all of these things need to be working well, and they need to be working well together," Rapp said. "You can imagine that in someone who is a poor speller, it suggests either one or more of these systems haven't fully developed, or they aren't interacting properly."</p>
+                <p>Human brains aren't specifically designed to do spelling or reading, like they are walking or speaking, Rapp said. Spelling and reading only stretch as far back as written language, several thousand years.</p>
+                <p>"They have to be learned," Rapp said. "They're not built in."</p>
+                <p>Most of us were trained in spelling and reading in school, but some will still see their emails marred by the angry red spellcheck lines. What you most often hear people complain about, Rapp said, is that they just can't see the word.</p>
+                <p>"For really poor spellers that otherwise seem like normal people of normal intelligence, it could be that ... for some reasons we don't understand, even though they had the same experience, they weren't able to create these long-term memory representations," she said.</p>
+                <p>That doesn't mean there's no hope of getting better or finding ways to cope.</p>
+                <p style="font-weight:bold">Can you spell i-m-p-r-o-v-e-m-e-n-t?</p>
+                <p>More research is needed to zero in on which techniques works best to teach and learn spelling, but studying followed by testing has helped all of Rapp's stroke patients improve. Repetition -- "lots and lots of repetition" -- is key, she said.</p>
+                <p>"They study the word, then try to spell the word. They study the word, then try to spell the word. Study, spell, study, spell," Rapp said. "It's very important to test yourself."</p>
+                <p>For the youngest spellers, the key is getting the right words at the right time, said said J. Richard Gentry, an eduction consultant and author of "Raising Confident Readers." They're just learning to connect shapes with sounds and to store those patterns in their long-term memories. Some will still struggle, but a foundation that exposes children to bats, cats, hats and rats, for example, helps them move on to more complex sound and letter combinations, he said.</p>
+                <p>Spelling training has gotten more precise as research has improved, he said. No longer should students be presented with a jumble of words taken out of context. But neither does he believe that students should be tested on zingers used mostly in the course of a single reading or writing lesson.</p>
+                <p>"It's great that we're doing more writing, but spelling needs its own time, about 15 minutes a day," he said. "It's all about frequency and patterns."</p>
+                <p>And for adults who aren't aiming for spelling bee success? They can develop "spelling consciousness," Gentry said. That's what he calls an awareness that you should take the time to spell check an email or ask someone to read your memo before you send it.</p>
+                <p>"It's not their fault," Gentry said, especially if they have some form of dyslexia or were never really taught to do more than memorize the words on the test.</p>
+                <p>Even Mishra, the spelling bee champ, who recently graduated from Columbia University, said memorization can't be the only path to good spelling.</p>
+                <p>"I don't think it's possible to rote memorize the dictionary," he said.</p>
+                <p style="font-weight:bold">The markers of spelling success</p>
+                <p>Mishra has attended the National Spelling Bee since his win, and he still sees four qualities among the best-of-the-best spellers.</p>
+                <p>They're self-motivated and a little competitive. It's not about humbling the judges or besting other competitors, he said. The enemy is the dictionary, and the butterflies in their stomachs.</p>
+                <p>Second, they usually have a coach. It's an English teacher or a parent who helps them along the way, drilling them on words and keeping them on schedule. For Mishra, it was his sister, Shruti, who is now in medical school. When he hit a rough patch and struggled with the same words, she reminded him to run around outside or play video games.</p>
+                <p>"You can get frustrated, tired, exhausted," he said. "I needed someone to tell me: This is just a spelling bee."</p>
+                <p>Of course, it comes down to the work. The competitors are all intellectually curious, Mishra said. Great spellers are often avid readers, and they commit a lot of words to memory, but they'll also study prefixes, suffixes, foreign languages and definitions that will help them deduce how a word is spelled.</p>
+                <p>Just this week, after reading in Mishra's spelling bee bio that he's growing a beard, someone mentioned it was a "pogonotrophic fun fact." Mishra didn't know the word, but he knew that "pogo-" or "pogon-" referred to a beard and "-trophy" meant growing or development.</p>
+                <p>"It's pattern-building," he said. "A lot of really good spellers are really good at patterns."</p>
+                <p>Finally, Mishra said, great spellers persevere. Many competitors come back to the National Spelling Bee again and again until they've aged out of the competition. They inevitably leave off a letter or buckle after an intense round, but they don't give up and find something else to fill their time. "Grit" is what parents and educators call that quality nowadays.</p>
+                <p>Mishra doesn't expect everyone to see spelling as an art. But he still feels pangs of sadness when friends admit they've given up on trying.</p>
+                <p>"There are going to be times in your life when you're not going to have a computer or you're not going to be able open your phone," Mishra said. "You're going to bite your lip and say, 'I should have paid more attention.' "</p>
+            </div>
+	
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Login</div>
+
+                        <div class="container">
+                            <input type="text" class="form-control" placeholder="Email" style="margin:20px auto">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto">
+
+                            <div>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember Me</span>
+                                </label>
+                            </div>
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Don't have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#signup" onclick="$('#login').modal('hide')">Sign Up</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                    <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+                        <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Sign Up</div>
+
+                        <div class="container">
+                            <div class="input-group" style="margin:20px auto">
+                              <input type="text" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" title="Enter your First Name">
+                              <input type="text" class="form-control" placeholder="Last Name"data-toggle="tooltip" data-placement="bottom" title="Enter your Last Name">
+                            </div>
+
+                            <input type="email" class="form-control" placeholder="Email" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter your email">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter password">
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Sign Up</button>
+                                <!--<div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>-->
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Already have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#login" onclick="$('#signup').modal('hide')">Login</a></span>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+			
+			<div class="container-fluid" style="background-color:yellow;padding:50px">
+				
+				<p class="lead" style="font-size:40px;text-align:center">Subscribe to our newsletter for free</p>
+				<div class="offset-md-3 col-md-6">
+					<form>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<div style="text-align:center">
+						<button class="btn btn-primary" style="margin-top:15px">Subscribe Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div style="position:fixed;right:15px;bottom:8px;background-color:#333333;padding:3px 5px;z-index:1">
+				<a href="#top" style="color:white"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+			</div>
+			
+			<div class="container-fluid" style="background-color:#333333">
+				<div class="row">
+					<div class="col-md-6">
+						<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News, All Rights Reserved</p>
+					</div>
+					
+					<div class="col-md-3 offset-md-3">
+						<ul style="list-style:none;color:white">
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 13px;margin:5px;background-color:white" href="https://www.facebook.com/amaan.iqbal.90813" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://twitter.com/amaan_iqbal9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 7px;margin:5px;background-color:white" href="https://plus.google.com/u/0/116420960491695673827?prsrc=3" rel="publisher" target="_blank" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://mail.google.com/mail/u/0/#inbox?compose=15c6942575c494ec" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+    </body>
+
+</html>
