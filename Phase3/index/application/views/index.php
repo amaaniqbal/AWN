@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" href="logo.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>AMAAN World News</title>
+		
+		<style>
+			
+			body {
+				margin:0;
+				padding:0;
+                padding-right: 0    !important;
+				overflow-x:hidden
+			}
+			#nav-link-color {
+				color:white
+			}
+			* {margin:0;padding:0;border:0 none;position: relative; outline: none;}
+            .design > a {
+              text-decoration: none;
+              color: rgba(0,0,0,.4);
+              z-index: 1;
+            }
+
+            .design > a:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background: #9CF5A6;
+              visibility: hidden;
+              border-radius: 5px;
+              transform: scaleX(0);
+              transition: .25s linear;
+            }
+            .design > a:hover:before,
+            .design > a:focus:before {
+              visibility: visible;
+              transform: scaleX(0.6);
+            }
+            .design a:before {
+                background: rgba(0,0,0,0);
+                box-shadow: 0 0 10px 2px #ffdb00;  
+            }
+			.carousel {
+				margin-bottom: 4rem
+			}
+			.carousel-caption {
+			  z-index: 10;
+			  bottom: 3rem
+			}
+			.carousel-item {
+			  height: 700px;
+			  background-color: #777
+			}
+			.carousel-item > img {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  min-width: 100%;
+			  height: 700px
+			}
+			#f1_container {
+			  position: relative;
+			  margin: 10px auto;
+			  width: 450px;
+			  height: 281px;
+			  z-index: 1
+			}
+			#f1_container {
+			  perspective: 1000
+			}
+			#f1_card {
+			  width: 350px;
+			  height: 100%;
+			  transform-style: preserve-3d;
+			  transition: all 1s linear
+			}
+			#f1_container:hover #f1_card {
+			  transform: rotateY(180deg);
+			  box-shadow: -5px 10px 5px gray
+			}
+			.face {
+			  position: absolute;
+			  width: 350px;
+			  height: 100%;
+			  backface-visibility: hidden
+			}
+			.face.back {
+			  display: block;
+			  transform: rotateY(180deg);
+			  box-sizing: border-box;
+			  padding: 10px;
+			  color: white;
+			  text-align: center;
+			  background-color: black
+			}
+			.floor-fade {
+				width:100%;
+				background-size: cover;				
+				position: relative
+			}
+			.img1 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("jumbo1.png")
+			}
+			.img2 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("jumbo2.png")
+			}
+			.img3 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("jumbo3.png")
+			}
+			.img4 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("jumbo4.png")
+			}
+			#image {
+			  position: absolute;
+			  left: 0;
+			  top: 0 
+			}
+			#text {
+				position: absolute;
+				color: white;
+				font-size: 16px;
+				background-color:black;
+				text-align:center;
+				width:100%;
+				bottom:0;
+				opacity:0.7
+			}
+			.follow {
+				float:left;
+				padding:5px 10px;
+				margin:5px;
+				background-color:white
+			}
+			.shake:hover {
+			  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			  transform: translate3d(0, 0, 0);
+			  backface-visibility: hidden;
+			  perspective: 1000px;
+			}
+			@keyframes shake {
+			  10%, 90% {
+				transform: translate3d(-1px, 0, 0);
+			  }
+			  20%, 80% {
+				transform: translate3d(2px, 0, 0);
+			  }
+			  30%, 50%, 70% {
+				transform: translate3d(-4px, 0, 0);
+			  }
+			  40%, 60% {
+				transform: translate3d(4px, 0, 0);
+			  }
+			}
+			.sidenav {
+				height: 100%; 
+				width: 0; 
+				position: fixed; 
+				z-index: 1; 
+				top: 0;
+				left: 0;
+				background-color: #111; 
+				overflow-x: hidden; 
+				padding-top: 60px; 
+				transition: 0.5s; 
+			}
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: #818181;
+				display: block;
+				transition: 0.3s
+			}
+			.sidenav a:hover, .offcanvas a:focus{
+				color: #f1f1f1;
+			}
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 25px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+			#main {
+				transition: margin-left .5s	
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 15px;}
+				.sidenav a {font-size: 18px;}
+			}
+		</style>
+        
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="world.html">World</a>
+		  <a href="education.html">Education</a>
+		  <a href="travel.html">Travel</a>
+		  <a href="health.html">Health</a>
+		  <a href="#" data-toggle="modal" data-target="#login">Login</a>
+		  <a href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+          <a href="#" data-toggle="modal" data-target="#admin">ADMIN Login</a>
+		  <p class="text-muted" style="font-size:20px;margin:60px auto 5px 35px">MORE</p>
+		  <a href="author.html">Author</a>
+		  <a href="contact.html">Contact</a>
+		  <a href="follow.html">Follow</a>
+          <a href="credits.html">Credits</a>
+		</div>
+		
+		<div id="main">
+			<nav class="navbar navbar-toggleable-lg navbar-light" style="background-color:#4A235A" id="top">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<span class="navbar-brand" onclick="openNav()" style="cursor:pointer">
+					<i class="fa fa-list-ul" aria-hidden="true" style="color:white"></i>
+				</span>
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mt-2 mt-md-0 nav nav-bordered">
+						<li class="nav-item active lead design">
+							<a class="nav-link" id="nav-link-color" href="#">Home</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="sport.html">Sport</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="weather.html">Weather</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="tech.html">Technology</a>
+						</li>
+					</ul>
+					
+					<ul class="ml-auto navbar-nav">
+					   <li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#login">Login</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+						</li>
+					</ul>
+					
+					<div style="margin-left:20px">
+						<div class=" input-group">
+							<form class="form-inline my-2 my-lg-0" id="navBarSearchForm" style="padding:7px 15px 0 0">
+								<input class="form-control" style="border-radius:0" type="text" placeholder="Search anything">
+								<div class="input-group-btn">
+									<button class="btn my-2 my-sm-0" style="border-radius:0;background-color:white;padding:7px;cursor:pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+									
+				</div>
+			</nav>	
+			
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<div class="floor-fade img1">					
+							<div class="carousel-caption">
+								  <h1>Trump urges Muslim leaders to lead fight against radicalisation</h1>
+								  <p>US President Donald Trump has urged Muslim countries to take the lead in combating radicalisation in a major speech in Saudi Arabia.</p>
+								  <p><a class="btn btn-lg btn-primary" href="index1.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+					</div>
+				
+					<div class="carousel-item">
+						<div class="floor-fade img2">					
+							<div class="carousel-caption">
+								  <h1>WannaCry: What can you do to protect your business?</h1>
+								  <p>The WannaCry cyber-attack infected more than 200,000 computers in 150 countries, affecting government, healthcare and private company systems. But how easily could it have been avoided and how can firms protect themselves against future attacks?</p>
+								  <p><a class="btn btn-lg btn-primary" href="index2.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="carousel-item">
+						<div class="floor-fade img3">					
+							<div class="carousel-caption">
+								  <h1>North Korea says intermediate-range ballistic missile test confirms warhead guidance</h1>
+								  <p>North Korea has said it has successfully tested an intermediate-range ballistic missile to confirm the reliability of the late-stage guidance of the nuclear warhead. KCNA news agency said leader Kim Jong Un supervised the test.</p>
+								  <p><a class="btn btn-lg btn-primary" href="index3.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="carousel-item">
+						<div class="floor-fade img4">					
+							<div class="carousel-caption">
+								  <h1>Manchester terror strike: Children among 22 killed, lone suicide attacker died in blast, say British police</h1>
+								  <p>According to British police, the blast was carried out by a lone attacker after an Ariana Grande concert in Manchester on Monday.</p>
+								  <p><a class="btn btn-lg btn-primary" href="index4.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+				<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				
+				<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			
+			</div>
+			
+			<div class="container-fluid" style="width:100%;margin-bottom:30px">
+				
+				<h2 style="border-left:5px solid #4A235A;padding-left:15px">Featured Posts</h2>
+				
+				<div class="row" style="margin-top:15px">
+					<div class="col-xl-3">
+						<div id="f1_container">
+							<div id="f1_card" class="shadow">
+							  <div class="front face">	  
+								<img id="image" src="featured1.png" style=" width:350px;height:281px"/>
+								<p id="text">Turkey crowd taunts coup suspects at mass trial near Ankara</p>
+							  </div>
+							  <div class="back face center">
+								<p>Turkey has marched dozens of coup suspects past a hostile crowd at the start of their trial near Ankara.</p>
+								<p>Most of the 221 suspects are high-ranking military officers, accused of trying to oust President Recep Tayyip Erdogan last July. <br> Ex-air force commander Akin Ozturk was the first in a long line of defendants. There were calls for death ... <a href="index5.html" style="margin-left:10px;color:#0175FB">Read More</a></p>
+							  </div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xl-3">
+						<div id="f1_container">
+							<div id="f1_card" class="shadow">
+							  <div class="front face">	  
+								<img id="image" src="featured2.png" style=" width:350px;height:281px"/>
+								<p id="text">India's position biggest challenge for China-backed free trade deal</p>
+							  </div>
+							  <div class="back face center">
+								<p>According to an official, India's stance on tariffs is problematic owing to its assumption that tariff elimination will cut revenue and their competitive position, especially against China.</p>
+								<p>Disagreements between Asian countries, including India, over a China-backed free trade deal surfaced at talks on Monday, raising questions  ... <a href="index6.html" style="margin-left:10px;color:#0175FB">Read More</a></p>
+							  </div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xl-3">
+						<div id="f1_container">
+							<div id="f1_card" class="shadow">
+							  <div class="front face">	  
+								<img id="image" src="featured3.png" style=" width:350px;height:281px"/>
+								<p id="text">The endgame battle: How US is planning the final war against Islamic State. It wants Russia's support</p>
+							  </div>
+							  <div class="back face center">
+								<p>The United State is preparing plan to launch the final war against the Islamic State. It has proposed to Russia the plan set to be fought on a 100-mile stretch of the IS controlled land.</p>
+								<p>The United States has proposed to Russia a plan for managing an increasingly complex battlefield in Syria's main oil-producing region, where ... <a href="index7.html" style="margin-left:10px;color:#0175FB">Read More</a></p>
+							  </div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xl-3">
+						<div id="f1_container">
+							<div id="f1_card" class="shadow">
+							  <div class="front face">	  
+								<img id="image" src="featured4.png" style=" width:350px;height:281px"/>
+								<p id="text">Iran fires mortal shells into Pakistan, no casualties reported</p>
+							  </div>
+							  <div class="back face center">
+								<p>Five mortal shells were fired from Iran into Balochistan's Chagai area today evening, reported Geo TV.</p>
+								<p>According to reports, no casualties have been reported so far. Pakistan shares a 900 kilometre long porous border with Iran and the two countries had in 2014 decided to boost intelligence coordination to wipe out terrorists from ... <a href="index8.html" style="margin-left:10px;color:#0175FB">Read More</a></p>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container-fluid bg-faded" style="width:100%;margin-bottom:30px;padding-top:30px;padding-bottom:30px">
+				
+				<h2 style="border-left:5px solid #0FFBE7;padding-left:15px">India News</h2>
+				
+				<div class="row">
+					<div class="col-xl-3">
+						<div id="f1_container">
+							<div id="f1_card" class="shadow">
+							  <div class="front face">	  
+								<img id="image" src="india1.png" style=" width:350px;height:281px"/>
+								<p id="text">Indian woman 'sets new Everest dual ascent record'</p>
+							  </div>
+							  <div class="back face center">
+								<p>An Indian has climbed Mount Everest twice in under a week in what may be a new woman's record for the fastest double ascent.</p>
+								<p>Anshu Jamsenpa, a 37-year-old mother-of-two, reached the summit on 16 and 21 May ... <a href="index9.html" style="margin-left:10px;color:#0175FB">Read More</a></p>
+							  </div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xl-3">
+						<div id="f1_container">
+							<div id="f1_card" class="shadow">
+							  <div class="front face">	  
+								<img id="image" src="india2.png" style=" width:350px;height:281px"/>
+								<p id="text">Nuclear Suppliers Group likely to meet next month, slim chance of India's entry</p>
+							  </div>
+							  <div class="back face center">
+								<p>China is the only country resistant to India's NSG bid, meanwhile India resumes its efforts to become a member of the 48-nation group by engaging with all member countries. </p>
+								<p>The next plenary session of the Nuclear Suppliers Group (NSG) is likely to be held in Swiss capital Bern next month, but the chances of any breakthrough on India's entry into ... <a href="index10.html" style="margin-left:10px;color:#0175FB">Read More</a></p>
+							  </div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xl-3">
+						<div id="f1_container">
+							<div id="f1_card" class="shadow">
+							  <div class="front face">	  
+								<img id="image" src="india3.png" style=" width:350px;height:281px"/>
+								<p id="text">Indian national arrested in Pakistan over incomplete travel documents</p>
+							  </div>
+							  <div class="back face center">
+								<p>The Indian national was arrested from F-8 area of Islamabad and has been sent to jail for judicial remand.</p>
+								<p>An Indian national has been arrested in Islamabad on Sunday allegedly over incomplete travel documents. According to Pakistan local media, a case has also been filed under Article 14 of the Foreign Act. According to police, the man identified as ... <a href="index11.html" style="margin-left:10px;color:#0175FB">Read More</a></p>
+							  </div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xl-3">
+						<div id="f1_container">
+							<div id="f1_card" class="shadow">
+							  <div class="front face">	  
+								<img id="image" src="india4.png" style=" width:350px;height:281px"/>
+								<p id="text">IPL: Mumbai Indians beat Rising Pune Supergiant by one run to win title</p>
+							  </div>
+							  <div class="back face center">
+								<p>A superb final over from Mitchell Johnson saw Mumbai Indians beat Rising Pune Supergiant by one run to win a thrilling Indian Premier League final.</p>
+								<p>With Pune needing 11 runs, Johnson conceded a four off his first ball but then  ... <a href="index12.html" style="margin-left:10px;color:#0175FB">Read More</a></p>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+			<div class="container-fluid row" style="width:100%;padding-bottom:50px">
+				
+				<div class="col-xl-6">
+				
+					<h2 style="border-left:5px solid #FE6807;padding-left:15px">Must Watch</h2>
+					
+					<div style="margin-top:30px">
+						<video  controls loop preload="auto" frameborder="0" onclick="this.play();" poster="video.png" style="width:100%">
+							<source src="video.mp4">
+						</video>
+					</div>
+				</div>
+				
+				<div class="col-xl-6">
+					
+					<h2 style="border-left:5px solid #34A853;padding-left:15px">Poll</h2>
+					<div class="container">
+						<h3 style="padding:10px;font-weight:bold;font-size:30px">How is My Website?</h3>
+					
+						<ul>
+							<li class="list-group-item">
+								<div class="radio">
+									<label class="custom-control custom-radio">
+										<input type="radio" name="optionsRadios" class="custom-control-input"><span class="custom-control-indicator"></span> Excellent			
+									</label>
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="radio">
+									<label class="custom-control custom-radio">
+										<input type="radio" name="optionsRadios" class="custom-control-input"><span class="custom-control-indicator"></span> Good
+									</label>
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="radio">
+									<label class="custom-control custom-radio">
+										<input type="radio" name="optionsRadios" class="custom-control-input"><span class="custom-control-indicator"></span> Satisfactory
+									</label>
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="radio">
+									<label class="custom-control custom-radio">
+										<input type="radio" name="optionsRadios" class="custom-control-input"><span class="custom-control-indicator"></span> Needs Improvement
+									</label>
+								</div>
+							</li>
+							<li class="list-group-item">
+								<div class="radio">
+									<label class="custom-control custom-radio">
+										<input type="radio" name="optionsRadios" class="custom-control-input"><span class="custom-control-indicator"></span>No Comment
+									</label>
+								</div>
+							</li>
+						</ul>
+						
+						<div style="text-align:center">
+							<button type="button" class="btn btn-primary">Vote</button>	
+						</div>
+					</div>		
+				</div>
+			</div>
+            
+            <!-- Modal -->
+            <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" style="background-color:purple;color:white;border-top-left-radius:4px;border-top-right-radius:4px">
+                    <h5 class="modal-title lead" id="exampleModalLabel" style="font-size:40px">Subscribe to our newsletter for free</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" style="color:white">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" style="padding:30px">
+                    <div >
+                        <?php
+                            if(validation_errors()) {
+                                echo '<div class="alert alert-danger" role="alert" style="margin-top:20px">';
+                                echo validation_errors(); 
+                                echo '</div>';
+                            }
+                            if($this->session->flashdata("error")) {
+                                echo '<div class="alert alert-danger" role="alert" style="margin:20px">'.$this->session->flashdata("error").'</div>'; 
+                            }
+                        ?>  
+                        <?php echo form_open('form/subscriber'); ?>
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="subscribe" aria-describedby="emailHelp" placeholder="Your email here"  value="<?php echo set_value('subscribe'); ?>">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <div style="text-align:center">
+                            <button class="btn btn-primary" style="margin-top:25px">Subscribe Now</button>
+                            </div>
+                        <?php echo form_close(); ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="modal fade" id="admin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">ADMIN Login</div>
+
+                        <div class="container">
+                            <input type="email" class="form-control" placeholder="Email" style="margin:20px auto">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto">
+
+                            <div>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember Me</span>
+                                </label>
+                            </div>
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="submit" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                <div style="font-size:11px;margin-top:10px;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Login</div>
+
+                        <div class="container">
+                            <?php
+                                if(validation_errors()) {
+                                    echo '<div class="alert alert-danger" role="alert" style="margin-top:20px;">';
+                                    echo validation_errors(); 
+                                    echo '</div>';
+                                }
+                                if($this->session->flashdata("error")) {
+                                    echo '<div class="alert alert-danger" role="alert" style="margin:20px;">'.$this->session->flashdata("error").'</div>';  
+                                }
+                            ?>  
+                            <?php echo form_open('form/login'); ?>
+                                <input type="email" class="form-control" placeholder="Email" name="email" style="margin:20px auto" value="<?php echo set_value('email'); ?>">
+                                <input type="password" class="form-control" placeholder="Password" name="password" style="margin:20px auto" value="<?php echo set_value('password'); ?>">
+
+                                <div>
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Remember Me</span>
+                                    </label>
+                                </div>
+
+                                <div style="text-align:center;margin-top:20px">
+                                    <button type="submit" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                    <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                    <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                                </div>
+
+                                <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                    Don't have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#signup" onclick="$('#login').modal('hide')">Sign Up</a></span>
+
+                                </div>
+                            <?php echo form_close(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                    <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+                        <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Sign Up</div>
+
+                        <div class="container">
+                            <?php
+                                if(validation_errors()) {
+                                    echo '<div class="alert alert-danger" role="alert" style="margin:20px;">';
+                                    echo validation_errors(); 
+                                    echo '</div>';
+                                }
+                            ?>
+                            <?php echo form_open('form/submit'); ?>
+                                <div class="input-group" style="margin:20px auto">
+                                  <input type="text" class="form-control" name="firstName" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" title="Enter your First Name" value="<?php echo set_value('firstName'); ?>">
+                                  <input type="text" class="form-control" name="lastName" placeholder="Last Name"data-toggle="tooltip" data-placement="bottom" title="Enter your Last Name" value="<?php echo set_value('lastName'); ?>">
+                                </div>
+
+                                <input type="email" class="form-control" name="signup_email" placeholder="Email" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter your email" value="<?php echo set_value('signup_email'); ?>">
+                                <input type="password" class="form-control" name="signup_password" placeholder="Password" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter password" value="<?php echo set_value('signup_password'); ?>">
+
+                                <div style="text-align:center;margin-top:20px">
+                                    <button type="submit" style="width:100%;border-radius:0" class="btn btn-primary">Sign Up</button>
+                                    <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                                </div>
+
+                                <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                    Already have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#login" onclick="$('#signup').modal('hide')">Login</a></span>
+
+                                </div>
+                            <?php echo form_close(); ?>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            
+			
+			<div class="container-fluid" style="background-color:yellow;padding:50px">
+				
+				<p class="lead" style="font-size:40px;text-align:center">Subscribe to our newsletter for free</p>
+				<div class="offset-md-3 col-md-6">
+					<form>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<div style="text-align:center">
+						<button type="submit" class="btn btn-primary" style="margin-top:15px">Subscribe Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div style="position:fixed;right:15px;bottom:8px;background-color:#333333;padding:3px 5px;z-index:1">
+				<a href="#top" style="color:white"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+			</div>
+			
+			<div class="container-fluid" style="background-color:#333333">
+				<div class="row">
+					<div class="col-md-6">
+						<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News, All Rights Reserved</p>
+					</div>
+					
+					<div class="col-md-3 offset-md-3">
+						<ul style="list-style:none;color:white">
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 13px;margin:5px;background-color:white" href="https://www.facebook.com/amaan.iqbal.90813" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://twitter.com/amaan_iqbal9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 7px;margin:5px;background-color:white" href="https://plus.google.com/u/0/116420960491695673827?prsrc=3" rel="publisher" target="_blank" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://mail.google.com/mail/u/0/#inbox?compose=15c6942575c494ec" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	    <script type="text/javascript">
+            $(window).on('load',function(){
+                $('#myModal').modal('show');
+            });
+        </script>
+    </body>
+
+</html>
