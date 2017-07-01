@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" href="logo.png">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<title>AMAAN World News</title>
+		
+		<style>
+			
+			body {
+				margin:0;
+				padding:0;
+				overflow-x:hidden
+			}
+			#nav-link-color {
+				color:white
+			}
+			
+			* {margin:0;padding:0;border:0 none;position: relative; outline: none;}
+            .design > a {
+              text-decoration: none;
+              color: rgba(0,0,0,.4);
+              z-index: 1;
+            }
+
+            .design > a:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background: #9CF5A6;
+              visibility: hidden;
+              border-radius: 5px;
+              transform: scaleX(0);
+              transition: .25s linear;
+            }
+            .design > a:hover:before,
+            .design > a:focus:before {
+              visibility: visible;
+              transform: scaleX(0.6);
+            }
+            .design a:before {
+                background: rgba(0,0,0,0);
+                box-shadow: 0 0 10px 2px #ffdb00;  
+            }
+			.carousel {
+				margin-bottom: 4rem
+			}
+			.carousel-caption {
+			  z-index: 10;
+			  bottom: 3rem
+			}
+			.carousel-item {
+			  height: 700px;
+			  background-color: #777
+			}
+			.carousel-item > img {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  min-width: 100%;
+			  height: 700px
+			}
+
+			.floor-fade {
+				width:100%;
+				background-size: cover;				
+				position: relative
+			}
+			.img1 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("travel1.png")
+			}
+			.img2 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("travel2.png")
+			}
+			.img3 {
+				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) ), url("travel3.png")
+			}	
+			.follow {
+				float:left;
+				padding:5px 10px;
+				margin:5px;
+				background-color:white
+			}
+			.shake:hover {
+			  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			  transform: translate3d(0, 0, 0);
+			  backface-visibility: hidden;
+			  perspective: 1000px;
+			}
+			@keyframes shake {
+			  10%, 90% {
+				transform: translate3d(-1px, 0, 0);
+			  }
+			  20%, 80% {
+				transform: translate3d(2px, 0, 0);
+			  }
+			  30%, 50%, 70% {
+				transform: translate3d(-4px, 0, 0);
+			  }
+			  40%, 60% {
+				transform: translate3d(4px, 0, 0);
+			  }
+			}
+			.sidenav {
+				height: 100%; 
+				width: 0; 
+				position: fixed; 
+				z-index: 1; 
+				top: 0;
+				left: 0;
+				background-color: #111; 
+				overflow-x: hidden; 
+				padding-top: 60px; 
+				transition: 0.5s; 
+			}
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: #818181;
+				display: block;
+				transition: 0.3s
+			}
+			.sidenav a:hover, .offcanvas a:focus{
+				color: #f1f1f1;
+			}
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 25px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+			#main {
+				transition: margin-left .5s	
+			}
+			@media screen and (max-height: 450px) {
+				.sidenav {padding-top: 15px;}
+				.sidenav a {font-size: 18px;}
+			}
+            /*MAIN STYLES*/
+           .grid {
+                position: relative;
+                margin: 0 auto;
+                padding: 1em 0 4em;
+                list-style: none;
+                text-align: center;
+            }
+            .grid figure {
+                position: relative;
+                float: left;
+                overflow: hidden;
+                margin: 30px 1%;
+                
+                max-width: 550px;
+                max-height: 420px;
+                background: #3085a3;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .grid figure img {
+                position: relative;
+                display: block;
+                min-height: 100%;
+                max-width: 100%;
+                opacity: 0.8;
+            }
+
+            .grid figure figcaption {
+                padding: 2em;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 1.25em;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+
+            .grid figure figcaption::before,
+            .grid figure figcaption::after {
+                pointer-events: none;
+            }
+
+            .grid figure figcaption,
+            .grid figure figcaption > a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* Anchor will cover the whole item by default */
+            /* For some effects it will show as a button */
+            .grid figure figcaption > a {
+                z-index: 1000;
+                text-indent: 200%;
+                white-space: nowrap;
+                font-size: 0;
+                opacity: 0;
+            }
+
+            .grid figure h2 {
+                word-spacing: -0.15em;
+                font-weight: 300;
+            }
+
+            .grid figure h2,
+            .grid figure p {
+                margin: 0;
+            }
+
+            .grid figure p {
+                letter-spacing: 1px;
+                font-size: 68.5%;
+            }
+            figure.effect {
+                background: #18a367;
+            }
+
+            figure.effect img {
+                height: 450px;
+            }
+
+            figure.effect figcaption {
+                padding: 3em;
+            }
+
+            figure.effect figcaption::before,
+            figure.effect figcaption::after {
+                position: absolute;
+                content: '';
+                opacity: 0;
+            }
+
+            figure.effect figcaption::before {
+                top: 50px;
+                right: 30px;
+                bottom: 50px;
+                left: 30px;
+                border-top: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+                -webkit-transform: scale(0,1);
+                transform: scale(0,1);
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+            }
+
+            figure.effect figcaption::after {
+                top: 30px;
+                right: 50px;
+                bottom: 30px;
+                left: 50px;
+                border-right: 1px solid #fff;
+                border-left: 1px solid #fff;
+                -webkit-transform: scale(1,0);
+                transform: scale(1,0);
+                -webkit-transform-origin: 100% 0;
+                transform-origin: 100% 0;
+            }
+
+            figure.effect h2 {
+                padding-top: 26%;
+                -webkit-transition: -webkit-transform 0.35s;
+                transition: transform 0.35s;
+            }
+
+            figure.effect p {
+                padding: 0.5em 2em;
+                text-transform: none;
+                opacity: 0;
+                -webkit-transform: translate3d(0,-10px,0);
+                transform: translate3d(0,-10px,0);
+            }
+
+            figure.effect img,
+            figure.effect h2 {
+                -webkit-transform: translate3d(0,-30px,0);
+                transform: translate3d(0,-30px,0);
+            }
+
+            figure.effect img,
+            figure.effect figcaption::before,
+            figure.effect figcaption::after,
+            figure.effect p {
+                -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+                transition: opacity 0.35s, transform 0.35s;
+            }
+
+            figure.effect:hover img {
+                opacity: 0.45;
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+
+            figure.effect:hover figcaption::before,
+            figure.effect:hover figcaption::after {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            figure.effect:hover h2,
+            figure.effect:hover p {
+                opacity: 1;
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+
+            figure.effect:hover figcaption::after,
+            figure.effect:hover h2,
+            figure.effect:hover p,
+            figure.effect:hover img {
+                -webkit-transition-delay: 0.15s;
+                transition-delay: 0.15s;
+            }
+            /*END OF MAIN STYLINGS*/
+            .height {
+                height: 350px;
+                width: 100%
+            }
+            .centred {
+                font-size:60px              
+            }
+            h3 {
+                width: 100%; 
+                text-align: center; 
+                line-height: 0.1em;
+                margin: 10px 0 20px; 
+                position: relative;
+                top: 20px;
+                
+            } 
+
+            h3 span { 
+                background:#fff; 
+                padding:0 10px; 
+            }
+		</style>
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="world.html">World</a>
+		  <a href="education.html">Education</a>
+		  <a href="#">Travel</a>
+		  <a href="health.html">Health</a>
+		  <a href="#" data-toggle="modal" data-target="#login">Login</a>
+		  <a href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+		  <p class="text-muted" style="font-size:20px;margin:60px auto 5px 35px">MORE</p>
+		  <a href="author.html">Author</a>
+		  <a href="contact.html">Contact</a>
+		  <a href="follow.html">Follow</a>
+          <a href="credits.html">Credits</a>
+		</div>
+		
+		<div id="main">
+			<nav class="navbar navbar-toggleable-lg navbar-light" style="background-color:#4A235A" id="top">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<span class="navbar-brand" onclick="openNav()" style="cursor:pointer">
+					<i class="fa fa-list-ul" aria-hidden="true" style="color:white"></i>
+				</span>
+
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mt-2 mt-md-0 nav nav-bordered">
+						<li class="nav-item active lead design">
+							<a class="nav-link" id="nav-link-color" href="index.html">Home</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="sport.html">Sport</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="weather.html">Weather</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="tech.html">Technology</a>
+						</li>
+					</ul>
+					
+					<ul class="ml-auto navbar-nav">
+					   <li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#login">Login</a>
+						</li>
+						<li class="nav-item lead design">
+							<a class="nav-link" id="nav-link-color" href="#" data-toggle="modal" data-target="#signup">Sign Up</a>
+						</li>
+					</ul>
+					
+					<div style="margin-left:20px">
+						<div class=" input-group">
+							<form class="form-inline my-2 my-lg-0" id="navBarSearchForm" style="padding:7px 15px 0 0">
+								<input class="form-control" style="border-radius:0" type="text" placeholder="Search anything">
+								<div class="input-group-btn">
+									<button class="btn my-2 my-sm-0" style="border-radius:0;background-color:white;padding:7px;cursor:pointer" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
+									
+				</div>
+			</nav>	
+			
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<div class="floor-fade img1">					
+							<div class="carousel-caption">
+								  <h1>A 10,000-year-old cave village</h1>
+								  <p>These ancient underground dwellings provide shelter for villagers – and their livestock – during Maymand’s biting winters.</p>
+								  <p><a class="btn btn-lg btn-primary" href="travel1.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+					</div>
+				
+					<div class="carousel-item">
+						<div class="floor-fade img2">					
+							<div class="carousel-caption">
+								  <h1>Where 200,000 couples flock each year</h1>
+								  <p>Despite being a small speck in the Arctic, Prince Leopold Island is one of Canada’s most important seabird colonies.</p>
+								  <p><a class="btn btn-lg btn-primary" href="travel2.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="carousel-item">
+						<div class="floor-fade img3">					
+							<div class="carousel-caption">
+								  <h1>The world’s oldest skyscrapers?</h1>
+								  <p> Built in the Middle Ages, Cuenca’s skyscrapers sit precariously on the edge of a cliff, offering residents spectacular views of the Spanish countryside.</p>
+								  <p><a class="btn btn-lg btn-primary" href="travel3.html" role="button">Learn More</a></p>
+							</div>
+						</div>
+                    </div>                    
+				</div>
+			 
+				<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				
+				<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+			
+            <div class="container" style="width:100%;padding-top:30px;margin-bottom:30px">
+
+                <h3 class="lead centred"><span>FEATURED</span></h3>
+
+                <div style="border:1px solid gray">
+                    <div class="grid row">
+                        <div class="col-md-6">
+                        <figure class="effect" style="float:right">
+                            <img src="travel4.png" alt="Image"/>
+                            <figcaption>
+                                <h2>The island with £100 million hidden</h2>
+                                <p>According to legend, pirate treasure reportedly worth £100 million is buried on an Indian Ocean island. This is the true story of two men’s life-long search.</p>
+                                <a href="travel4.html">View more</a>
+                            </figcaption>			
+                        </figure>
+                        </div>
+                        <div class="col-md-6">
+                        <figure class="effect">
+                            <img src="travel5.png" alt="Image"/>
+                            <figcaption>
+                                <h2>An island paradise with a sinister past</h2>
+                                <p>Tarutao is one of the most beautiful islands in Thailand, but its white-sand beaches and lush rainforests were once home to hardened criminals.</p>
+                                <a href="travel5.html">View more</a>
+                            </figcaption>			
+                        </figure>
+                        </div>
+                    </div>
+                    <div class="grid row" style="margin-top:-5em">
+                        <div class="col-md-6">
+                        <figure class="effect" style="float:right">
+                            <img src="travel6.png" alt="Image"/>
+                            <figcaption>
+                                <h2>An island paradise that will adopt you</h2>
+                                <p>On this fascinating South Pacific island, all 62 residents are related, everyone shares the same surname and can trace their lineage back to one British man.</p>
+                                <a href="travel6.html">View more</a>
+                            </figcaption>			
+                        </figure>
+                        </div>
+                        <div class="col-md-6">
+                        <figure class="effect">
+                            <img src="travel7.png" alt="Image"/>
+                            <figcaption>
+                                <h2>A silent city hidden in the desert</h2>
+                                <p>Madain Saleh isn’t as well-known as Petra, but the Nabateans’ second-largest city played a crucial role in their mysterious empire.</p>
+                                <a href="travel7.html">View more</a>
+                            </figcaption>			
+                        </figure>
+                        </div>
+                    </div>
+                </div>
+			</div>
+            
+            <div class="container" style="width:100%;padding-top:30px;margin-bottom:30px;margin-top:70px">
+
+                <h3 class="lead centred"><span>INDIA</span></h3>
+
+                <div style="border:1px solid gray">
+                    <div class="grid row">
+                        <div class="col-md-6">
+                        <figure class="effect" style="float:right">
+                            <img src="travel8.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Need a king of the jungle experience? Head to Bekal, Kerala, right now</h2>
+                                <p>For an experience of a lifetime, plan a trip to Bekal, Kerala, and become with nature in God's Own Country.</p>
+                                <a href="travel8.html">View more</a>
+                            </figcaption>			
+                        </figure>
+                        </div>
+                        <div class="col-md-6">
+                        <figure class="effect">
+                            <img src="travel9.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Here's proof that we Indians don't deserve a luxury like the new Tejas Express</h2>
+                                <p>With stolen headphones and littered floors, Tejas Express is an example of why some Indians cannot handle luxury.</p>
+                                <a href="travel9.html">View more</a>
+                            </figcaption>			
+                        </figure>
+                        </div>
+                    </div>
+                    <div class="grid row" style="margin-top:-5em">
+                        <div class="col-md-6">
+                        <figure class="effect" style="float:right">
+                            <img src="travel10.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Public parks will soon be disabled-friendly in God's Own Country, Kerala</h2>
+                                <p>Kerala is ensuring a comfortable experience for differently-abled tourists.</p>
+                                <a href="travel10.html">View more</a>
+                            </figcaption>			
+                        </figure>
+                        </div>
+                        <div class="col-md-6">
+                        <figure class="effect">
+                            <img src="travel11.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Have you visited the Indian valley of charms yet?</h2>
+                                <p>Set in the Karakoram ranges, Nubra Valley stills holds on to its quaint old-world charm.</p>
+                                <a href="travel11.html">View more</a>
+                            </figcaption>			
+                        </figure>
+                        </div>
+                    </div>
+                </div>
+			</div>
+            
+			<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                     <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+			             <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Login</div>
+
+                        <div class="container">
+                            <input type="text" class="form-control" placeholder="Email" style="margin:20px auto">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto">
+
+                            <div>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Remember Me</span>
+                                </label>
+                            </div>
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Login</button>
+                                <div>or <span style="color:#025AA5"><a href="#">Forgot Password</a></span></div>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Don't have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#signup" onclick="$('#login').modal('hide')">Sign Up</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:150px">
+                <div class="modal-dialog" role="document">
+                    <div style="border:1px solid gray;border-radius:6px;box-shadow: 2px 2px 5px white;background-color:white">
+                        <div style="font-size:30px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;background-color:#4A235A;color:white;padding-top:10px;padding-bottom:15px">Sign Up</div>
+
+                        <div class="container">
+                            <div class="input-group" style="margin:20px auto">
+                              <input type="text" class="form-control" placeholder="First Name" data-toggle="tooltip" data-placement="bottom" title="Enter your First Name">
+                              <input type="text" class="form-control" placeholder="Last Name"data-toggle="tooltip" data-placement="bottom" title="Enter your Last Name">
+                            </div>
+
+                            <input type="email" class="form-control" placeholder="Email" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter your email">
+                            <input type="password" class="form-control" placeholder="Password" style="margin:20px auto" data-toggle="tooltip" data-placement="right" title="Enter password">
+
+                            <div style="text-align:center;margin-top:20px">
+                                <button type="button" style="width:100%;border-radius:0"class="btn btn-primary">Sign Up</button>
+                                <div style="font-size:11px;margin-top:10px;border-bottom:1px solid gray;padding-bottom:15px;">By signing up, you agree to our <a style="color:#025AA5">Terms of Use</a> and <a style="color:#025AA5">Privacy Policy</a>.</div>
+                            </div>
+
+                            <div style="text-align:center;padding-top:10px;padding-bottom:20px">
+
+                                Already have an account? <span style="color:#025AA5"><a href="#" data-toggle="modal" data-target="#login" onclick="$('#signup').modal('hide')">Login</a></span>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+			
+			<div class="container-fluid" style="background-color:yellow;padding:50px">
+				
+				<p class="lead" style="font-size:40px;text-align:center">Subscribe to our newsletter for free</p>
+				<div class="offset-md-3 col-md-6">
+					<form>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<div style="text-align:center">
+						<button class="btn btn-primary" style="margin-top:15px">Subscribe Now</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div style="position:fixed;right:15px;bottom:8px;background-color:#333333;padding:3px 5px;z-index:1">
+				<a href="#top" style="color:white"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+			</div>
+			
+			<div class="container-fluid" style="background-color:#333333">
+				<div class="row">
+					<div class="col-md-6">
+						<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News, All Rights Reserved</p>
+					</div>
+					
+					<div class="col-md-3 offset-md-3">
+						<ul style="list-style:none;color:white">
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 13px;margin:5px;background-color:white" href="https://www.facebook.com/amaan.iqbal.90813" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://twitter.com/amaan_iqbal9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle shake" style="float:left;padding:5px 7px;margin:5px;background-color:white" href="https://plus.google.com/u/0/116420960491695673827?prsrc=3" rel="publisher" target="_blank" ><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+							</li>
+							<li>
+								<a class="rounded-circle follow shake" href="https://mail.google.com/mail/u/0/#inbox?compose=15c6942575c494ec" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script>
+			// For Demo purposes only (show hover effect on mobile devices)
+			[].slice.call( document.querySelectorAll('.content a') ).forEach( function(el) {
+				el.onclick = function() { return false; }
+			} );
+		</script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-7243260-2']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+				
+	</body>
+
+</html>

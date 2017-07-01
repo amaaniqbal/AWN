@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>ADMIN Dashboard</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+    <link href="Admin/assets/css/toolkit-inverse.css" rel="stylesheet">
+    <link href="Admin/assets/css/application.css" rel="stylesheet">
+
+    <style>
+
+	
+    </style>
+  </head>
+
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 sidebar">
+				<nav class="sidebar-nav">
+					<div class="sidebar-header">
+						<button class="nav-toggler nav-toggler-sm sidebar-toggler" type="button" data-toggle="collapse" data-target="#nav-toggleable-sm">
+							<span class="sr-only">Toggle nav</span>
+						</button>
+            
+						<a class="sidebar-brand img-responsive" href="admin.html">
+							<span class="icon icon-leaf sidebar-brand-icon"></span>
+						</a>
+					</div>
+
+					<div class="collapse nav-toggleable-sm" id="nav-toggleable-sm">
+						<form class="sidebar-form">
+							<input class="form-control" type="text" placeholder="Search...">
+							<button type="submit" class="btn-link">
+								<span class="icon icon-magnifying-glass"></span>
+							</button>
+						</form>
+            
+						<ul class="nav nav-pills nav-stacked">
+							<li class="nav-header">Dashboard</li>
+							<li>
+								<a href="admin.html">Overview</a>
+							</li>
+							<li class="active">
+								<a href="#">Add Article</a>
+							</li>
+							<li >
+								<a href="#">Edit Article</a>
+							</li>
+							<li >
+								<a href="#">Delete Article</a>
+							</li>
+							<li>
+								<a href="#">Add ADMIN</a>
+							</li>
+							<li>
+								<a href="#">Remove ADMIN</a>
+							</li>
+							<li >
+
+							<li class="nav-header">More</li>
+							
+							<li>
+								<a href="#">Approve / Reject Comment</a>
+							</li>
+							<li>
+								<a href="#">Reply to a Comment</a>
+							</li>
+							<li >
+								<a href="Admin/order-history/index.html">Subscriber History</a>
+							</li>
+							
+							<!--<li>
+								<a href="#docsModal" data-toggle="modal">Example modal</a>
+							</li>-->
+						</ul>
+						
+						<hr class="visible-xs m-t">
+					</div>
+				</nav>
+			</div>
+		
+			<div class="col-sm-9 content">
+				<div class="dashhead">
+					<div class="dashhead-titles">
+						<h6 class="dashhead-subtitle">Dashboard</h6>
+						<h2 class="dashhead-title">ADD ARTICLE</h2>
+					</div>
+
+					<div class="btn-toolbar dashhead-toolbar">
+						<div class="btn-toolbar-item input-with-icon">
+							<input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
+							<span class="icon icon-calendar"></span>
+						</div>
+					</div>
+				</div>
+
+				<hr class="m-t">
+				<form style="margin-bottom:25px">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Enter The Headline Of The Article</label>
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Headline">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputFile">Choose The Main Image Of The Article</label>
+						<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+					</div>
+					<div class="form-group">
+						<label for="exampleTextarea">Enter The Content Of The Article</label>
+						<textarea class="form-control" id="exampleTextarea" rows="10" placeholder="Content Goes Here..."></textarea>
+					</div>	  
+					<div style="text-align:center">
+						<button type="submit" class="btn btn-primary">ADD</button>
+					</div>
+				</form>			
+			</div>
+		</div>
+	</div>
+	
+	<div class="navbar-fixed-bottom" style="background-color:#333333">
+			
+			<p style="font-size:12px;color:white;margin-bottom:0;padding:10px">Copyright &copy; 2017 AMAAN World News</p>
+		
+	</div>	
+	
+    <script src="Admin/assets/js/jquery.min.js"></script>
+    <script src="Admin/assets/js/chart.js"></script>
+    <script src="Admin/assets/js/tablesorter.min.js"></script>
+    <script src="Admin/assets/js/toolkit.js"></script>
+    <script src="Admin/assets/js/application.js"></script>
+    <!--<script>
+      // execute/clear BS loaders for docs
+      $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+    </script>-->
+  </body>
+</html>
+
